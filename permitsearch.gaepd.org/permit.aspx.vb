@@ -31,8 +31,7 @@ Public Class permit
                 .CommandType = CommandType.Text
             }
 
-            If conn.State = ConnectionState.Open Then
-            Else
+            If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
 
@@ -72,8 +71,7 @@ Public Class permit
                 .CommandType = CommandType.Text
             }
 
-            If conn.State = ConnectionState.Open Then
-            Else
+            If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
 
