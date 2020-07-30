@@ -27,8 +27,9 @@ Public Class permit
 
             Dim sql = "SELECT pdfpermitdata FROM apbpermits WHERE strFILENAME = '" & Mid(file, 5) & "' "
             Dim conn As New SqlConnection(strDBConnection)
-            Dim cmd As New SqlCommand(sql, conn)
-            cmd.CommandType = CommandType.Text
+            Dim cmd As New SqlCommand(sql, conn) With {
+                .CommandType = CommandType.Text
+            }
 
             If conn.State = ConnectionState.Open Then
             Else
@@ -67,8 +68,9 @@ Public Class permit
 
             Dim sql = "SELECT docpermitdata FROM apbpermits WHERE strFILENAME = '" & Mid(file, 5) & "' "
             Dim conn As New SqlConnection(strDBConnection)
-            Dim cmd As New SqlCommand(sql, conn)
-            cmd.CommandType = CommandType.Text
+            Dim cmd As New SqlCommand(sql, conn) With {
+                .CommandType = CommandType.Text
+            }
 
             If conn.State = ConnectionState.Open Then
             Else
