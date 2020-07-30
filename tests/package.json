@@ -12,8 +12,6 @@
     "cypress:run": "cypress run",
     "cypress:dev": "cypress open --env configFile=dev",
     "cypress:dev-run": "cypress run --env configFile=dev",
-    "cypress:uat": "cypress open --env configFile=uat",
-    "cypress:uat-run": "cypress run --env configFile=uat",
     "cypress:prod": "cypress open --env configFile=prod",
     "cypress:prod-run": "cypress run --env configFile=prod"
   }

@@ -1,10 +1,17 @@
-# Permit Search repo-specific
+### Permit Search repo-specific ###
 
-Web.*.config
-Web.configBuilder.Debug.xml
-Web.configBuilder.Release.xml
-Web.configBuilder.Staging.xml
-Web.config
+# web config files
+web.*.config
+web.configBuilder.Debug.xml
+web.configBuilder.Release.xml
+web.configBuilder.Staging.xml
+web.config
+
+# Cypress.io generated videos, screenshots, and logs
+**/cypress/videos/
+**/cypress/screenshots/
+**/cypress/logs/
+
 
 ### generated .gitignore ###
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudio
