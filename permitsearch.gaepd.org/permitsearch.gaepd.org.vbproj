@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,6 +45,12 @@
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Mindscape.Raygun4Net, Version=5.10.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mindscape.Raygun4Net.5.10.2\lib\net40\Mindscape.Raygun4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mindscape.Raygun4Net4, Version=5.10.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mindscape.Raygun4Net.5.10.2\lib\net40\Mindscape.Raygun4Net4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -405,7 +411,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

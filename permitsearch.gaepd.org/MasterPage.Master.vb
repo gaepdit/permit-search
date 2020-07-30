@@ -1,8 +1,6 @@
 ﻿Public Class MasterPage
-    Inherits System.Web.UI.MasterPage
+    Inherits UI.MasterPage
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-
-    End Sub
+    Public ReadOnly Property RaygunApiKey = CType(ConfigurationManager.GetSection("RaygunSettings"), Mindscape.Raygun4Net.RaygunSettings).ApiKey
 
 End Class

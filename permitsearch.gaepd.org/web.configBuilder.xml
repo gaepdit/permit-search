@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
+  <configSections>
+    <section name="RaygunSettings" type="Mindscape.Raygun4Net.RaygunSettings, Mindscape.Raygun4Net" />
+  </configSections>
   <connectionStrings>
     <add name="SqlConnectionString" connectionString="" />
   </connectionStrings>
+  <RaygunSettings apikey="" />
   <appSettings>
     <add key="Telerik.Web.UI.RenderMode" value="lightweight" />
     <add key="Telerik.Skin" value="Bootstrap" />
@@ -62,5 +66,8 @@
       <add name="Telerik_RadUploadProgressHandler_ashx" path="Telerik.RadUploadProgressHandler.ashx" type="Telerik.Web.UI.RadUploadProgressHandler" verb="*" preCondition="integratedMode" />
       <add name="Telerik_Web_UI_WebResource_axd" path="Telerik.Web.UI.WebResource.axd" type="Telerik.Web.UI.WebResource" verb="*" preCondition="integratedMode" />
     </handlers>
+    <modules>
+      <add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule"/>
+    </modules>
   </system.webServer>
 </configuration>
