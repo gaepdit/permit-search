@@ -38,7 +38,7 @@ Public Class permit
             Dim dr As SqlDataReader = cmd.ExecuteReader()
             Dim recExist As Boolean = dr.Read
 
-            If recExist = True Then
+            If recExist Then
                 NoPermit.Visible = False
                 Me.Title = "GA AIR - File " & file
                 MyData = CType(dr.Item("pdfpermitdata"), Byte())
@@ -77,7 +77,7 @@ Public Class permit
 
             Dim dr As SqlDataReader = cmd.ExecuteReader()
             Dim recExist As Boolean = dr.Read
-            If recExist = True Then
+            If recExist Then
                 NoPermit.Visible = False
                 Me.Title = "GA AIR - File " & file
                 MyData = CType(dr.Item("docpermitdata"), Byte())
