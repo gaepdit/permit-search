@@ -1,0 +1,20 @@
+{
+  "name": "permitsearch-tests",
+  "version": "1.0.0",
+  "description": "Cypress tests for the Permit Search app",
+  "author": "Doug Waldron",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^4.11.0"
+  },
+  "scripts": {
+    "cypress": "cypress open",
+    "cypress:run": "cypress run",
+    "cypress:dev": "cypress open --env configFile=dev",
+    "cypress:dev-run": "cypress run --env configFile=dev",
+    "cypress:uat": "cypress open --env configFile=uat",
+    "cypress:uat-run": "cypress run --env configFile=uat",
+    "cypress:prod": "cypress open --env configFile=prod",
+    "cypress:prod-run": "cypress run --env configFile=prod"
+  }
+}
