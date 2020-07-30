@@ -1,0 +1,198 @@
+﻿
+#container
+{
+width: 960px;
+margin: 0px auto;
+color: #333;
+border: 1px solid gray;
+line-height: 100%;
+font-family: Verdana;
+font-size: small;
+}
+
+#footerContainer {
+    width: 960px;
+}
+
+div#aas_logo 
+{   
+    float: left;
+    width: 135px;
+    height: 135px;
+}
+a img {
+      border: none;
+}
+
+
+
+div#appsubtitle 
+{
+    clear: left;
+    height: 25px;
+    margin-top: 15px;
+    margin-left: 0px;
+    text-align: left;
+    font-family: Arial;
+    color: #203119;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+div.formarea
+{
+    position: relative;
+    background-color: whitesmoke;
+}
+
+div.formareafields
+{
+    position: relative;
+    margin-left: 10px;
+}
+
+.pageheading
+{
+    text-align: center;
+    font-family: Verdana;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.sectionheading
+{
+    font-family: Verdana;
+    font-size: large;
+    font-weight: bold;
+}
+
+.fieldlabel
+{    
+    font-family: Verdana;
+    font-weight: normal;    
+}
+
+/*.textboxlabel
+{
+    display: block !important;
+}*/
+
+.formfield
+{
+    font-family: Verdana;
+    font-weight: normal;
+    font-size:small;
+}
+
+.msglabelcenter
+{    
+    font-family: Verdana;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+    color: red;
+}
+
+.btnwrapper{
+    text-align:center;
+}
+
+.watermarked
+{
+    color: GrayText;
+}
+
+.logoutmessage
+{
+    margin:auto;
+    width: 500px;
+    font-family: Verdana;
+    font-size: medium;
+    line-height: 20px;
+    border: 3px groove solid green;
+    padding: 10px;
+}
+
+.errormessage
+{
+    margin:auto;
+    width: 500px;
+    font-family: Verdana;
+    font-size: medium;
+    line-height: 20px;
+    border: 3px groove solid green;
+    padding: 10px;
+}
+
+.errormessageheader
+{
+    margin:auto;
+    width: 420px;   
+    font-family: Verdana;
+    font-size: medium;
+    line-height: 20px;
+    border: 3px groove solid green;
+    padding: 10px;
+}
+
+.trainerstatus
+{
+    background-color:  	#FFFF66;
+}
+
+
+.grid-view {
+    padding: 0;
+    margin: 0;
+    font-family: "Verdana, Arial, Helvetica, sans-serif, Trebuchet MS";
+    font-size: 0.9em;
+}
+
+    .grid-view tr.header {
+        color: white;
+        background-color: #FF5600;
+        height: 25px;
+        vertical-align: middle;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .grid-view tr.normal {
+        color: black;
+        background-color: #dedede;
+        height: 25px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+    .grid-view tr.alternate {
+        color: black;
+        background-color: #F6F6F6;
+        height: 25px;
+        vertical-align: middle;
+        text-align: center;
+    }
+
+        .grid-view tr.normal:hover, .grid-view tr.alternate:hover {
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+
+        .info, .success, .warning, .error, .validation {
+border: 1px solid;
+font-weight:500;
+font-family:Arial, Helvetica, sans-serif; 
+font-size:13px;
+margin: 10px 0px;
+padding:15px 10px 15px 50px;
+background-repeat: no-repeat;
+background-position: 10px center;
+}
+ .error {
+color: #D8000C;
+background-color: #FFBABA;
+background-image: url('../Content/images/error.png');
+}
+
+ 

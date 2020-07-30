@@ -1,0 +1,10 @@
+/* CSS crunched with Crunch - http://crunchapp.net/ */
+/* Search Box */
+#region-branding #block-search-form,
+#region-branding #block-gsa-search-gsa-search-form,
+#region-branding .block-dor-search-box,
+#region-branding #block-gta-custom-boxes-gta-search-box,
+#region-branding .block-gta-search-box {
+  background-color: #BEC6BD;
+  background-color: rgba(147, 149, 152, 0.2);
+}

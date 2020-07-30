@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{070F99B9-8838-4ADF-AFA7-2F1FD85F5BA4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>permitsearch.gaepd.org</RootNamespace>
+    <AssemblyName>permitsearch.gaepd.org</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <UpgradeBackupLocation />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>permitsearch.gaepd.org.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>permitsearch.gaepd.org.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="Telerik.Web.Design, Version=2020.2.617.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2020.2.617\lib\net45\Telerik.Web.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.Device.Detection, Version=2020.2.617.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2020.2.617\lib\net45\Telerik.Web.Device.Detection.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2018.3.910.45\AdditionalLibraries\Bin45\Telerik.Web.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI, Version=2020.2.617.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2020.2.617\lib\net45\Telerik.Web.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2020.2.617.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2020.2.617\lib\net45\Telerik.Web.UI.Skins.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Core">
+      <HintPath>..\lib\RCAJAX\2018.3.910.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Flow">
+      <HintPath>..\lib\RCAJAX\2018.3.910.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Flow.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet">
+      <HintPath>..\lib\RCAJAX\2018.3.910.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml">
+      <HintPath>..\lib\RCAJAX\2018.3.910.45\AdditionalLibraries\Bin45\Telerik.Windows.Documents.Spreadsheet.FormatProviders.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Telerik.Windows.Zip">
+      <HintPath>..\lib\RCAJAX\2018.3.910.45\AdditionalLibraries\Bin45\Telerik.Windows.Zip.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="clearcache.aspx.designer.vb">
+      <DependentUpon>clearcache.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="clearcache.aspx.vb">
+      <DependentUpon>clearcache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.vb">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="errorpage.aspx.designer.vb">
+      <DependentUpon>errorpage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="errorpage.aspx.vb">
+      <DependentUpon>errorpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.vb">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.vb">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MRFunctions.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="permit.aspx.designer.vb">
+      <DependentUpon>permit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="permit.aspx.vb">
+      <DependentUpon>permit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="android-chrome-192x192.png" />
+    <Content Include="android-chrome-512x512.png" />
+    <Content Include="apple-touch-icon.png" />
+    <Content Include="browserconfig.xml" />
+    <Content Include="Content\aas2.css" />
+    <Content Include="Content\aasiframe_styles.css" />
+    <Content Include="Content\aas_styles.css" />
+    <Content Include="Content\alphadefaultnormal12.css" />
+    <Content Include="Content\alphadefaultnormal16.css" />
+    <Content Include="Content\core.css" />
+    <Content Include="Content\css\aas2.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\jquery-ui1.css" />
+    <Content Include="Content\css\jquery.timepicker.css" />
+    <Content Include="Content\css\map.css" />
+    <Content Include="Content\css\ra.css" />
+    <Content Include="Content\environment.css" />
+    <Content Include="Content\gtaenvironmenttworesponsivealphadefaultnormal.css" />
+    <Content Include="Content\gtaresponsivebasealphadefault.css" />
+    <Content Include="Content\gtaresponsivebasealphadefaultnormal.css" />
+    <Content Include="Content\images\AAS.png" />
+    <Content Include="Content\images\aasBackground.jpg" />
+    <Content Include="Content\images\aasbig.jpg" />
+    <Content Include="Content\images\AASlogo_rounded_noborder.png" />
+    <Content Include="Content\images\AASSmall.PNG" />
+    <Content Include="Content\images\AAS_Letterhead2.JPG" />
+    <Content Include="Content\images\AAS_Letterhead2a.JPG" />
+    <Content Include="Content\images\AAS_logo2.png" />
+    <Content Include="Content\images\AAW.png" />
+    <Content Include="Content\images\baker_sign.png" />
+    <Content Include="Content\images\banner.jpg" />
+    <Content Include="Content\images\banner2.jpg" />
+    <Content Include="Content\images\border.jpg" />
+    <Content Include="Content\images\Border_Image.jpg" />
+    <Content Include="Content\images\cert2.png" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\DeleteRed.png" />
+    <Content Include="Content\images\download1.png" />
+    <Content Include="Content\images\download2.png" />
+    <Content Include="Content\images\DrkBlue_Rectangle.png" />
+    <Content Include="Content\images\EditButton.png" />
+    <Content Include="Content\images\error.png" />
+    <Content Include="Content\images\excel.png" />
+    <Content Include="Content\images\ga-footer-logo.png" />
+    <Content Include="Content\images\gpw.png" />
+    <Content Include="Content\images\gpw1.png" />
+    <Content Include="Content\images\Graph.JPG" />
+    <Content Include="Content\images\green_rect.png" />
+    <Content Include="Content\images\groups\aas_sel.png" />
+    <Content Include="Content\images\groups\aas_unsel.png" />
+    <Content Include="Content\images\groups\all_sel.png" />
+    <Content Include="Content\images\groups\all_unsel.png" />
+    <Content Include="Content\images\groups\both_sel.png" />
+    <Content Include="Content\images\groups\both_unsel.png" />
+    <Content Include="Content\images\groups\noevt_sel.png" />
+    <Content Include="Content\images\groups\noevt_unsel.png" />
+    <Content Include="Content\images\groups\ra_sel.png" />
+    <Content Include="Content\images\groups\ra_unsel.png" />
+    <Content Include="Content\images\Harold1_Sign.png" />
+    <Content Include="Content\images\Harold_sign.png" />
+    <Content Include="Content\images\header-bg.png" />
+    <Content Include="Content\images\hopkins_sign.png" />
+    <Content Include="Content\images\LetterHead1.png" />
+    <Content Include="Content\images\Letter_Head.png" />
+    <Content Include="Content\images\Logo.png" />
+    <Content Include="Content\images\ltgray_rect.png" />
+    <Content Include="Content\images\ltGray_Rectangle.png" />
+    <Content Include="Content\images\ltgreen_rect.png" />
+    <Content Include="Content\images\ltpurple_rect.png" />
+    <Content Include="Content\images\ltyellow_rect.png" />
+    <Content Include="Content\images\lytBlue_Rectangle.png" />
+    <Content Include="Content\images\menu-divider.png" />
+    <Content Include="Content\images\mm_20_gray.png" />
+    <Content Include="Content\images\mm_20_green.png" />
+    <Content Include="Content\images\mm_20_purple.png" />
+    <Content Include="Content\images\mm_20_red.png" />
+    <Content Include="Content\images\mm_20_yellow.png" />
+    <Content Include="Content\images\mm_89d485.png" />
+    <Content Include="Content\images\mm_acd64f.png" />
+    <Content Include="Content\images\mm_d3ed9a.png" />
+    <Content Include="Content\images\mm_e9f7cb.png" />
+    <Content Include="Content\images\orange_rect.png" />
+    <Content Include="Content\images\page-bg.png" />
+    <Content Include="Content\images\red_rect.png" />
+    <Content Include="Content\images\Sara_Sign.png" />
+    <Content Include="Content\images\search-button.png" />
+    <Content Include="Content\images\SH\10a.png" />
+    <Content Include="Content\images\SH\10b.png" />
+    <Content Include="Content\images\SH\10c.png" />
+    <Content Include="Content\images\SH\1a.png" />
+    <Content Include="Content\images\SH\1b.png" />
+    <Content Include="Content\images\SH\1c.png" />
+    <Content Include="Content\images\SH\2a.png" />
+    <Content Include="Content\images\SH\2b.png" />
+    <Content Include="Content\images\SH\2c.png" />
+    <Content Include="Content\images\SH\3a.png" />
+    <Content Include="Content\images\SH\3b.png" />
+    <Content Include="Content\images\SH\3c.png" />
+    <Content Include="Content\images\SH\4a.png" />
+    <Content Include="Content\images\SH\4b.png" />
+    <Content Include="Content\images\SH\4c.png" />
+    <Content Include="Content\images\SH\5a.png" />
+    <Content Include="Content\images\SH\5b.png" />
+    <Content Include="Content\images\SH\5c.png" />
+    <Content Include="Content\images\SH\6a.png" />
+    <Content Include="Content\images\SH\6b.png" />
+    <Content Include="Content\images\SH\6c.png" />
+    <Content Include="Content\images\SH\7a.png" />
+    <Content Include="Content\images\SH\7b.png" />
+    <Content Include="Content\images\SH\7c.png" />
+    <Content Include="Content\images\SH\8a.png" />
+    <Content Include="Content\images\SH\8b.png" />
+    <Content Include="Content\images\SH\8c.png" />
+    <Content Include="Content\images\SH\9a.png" />
+    <Content Include="Content\images\SH\9b.png" />
+    <Content Include="Content\images\SH\9c.png" />
+    <Content Include="Content\images\SH\pic.jpg" />
+    <Content Include="Content\images\SH\pic2.jpg" />
+    <Content Include="Content\images\tiny.png" />
+    <Content Include="Content\images\UnderCon.jpg" />
+    <Content Include="Content\images\Untitled.png" />
+    <Content Include="Content\images\Untitled2.png" />
+    <Content Include="Content\images\View.png" />
+    <Content Include="Content\images\yellow_rect.png" />
+    <Content Include="Content\responsive.css" />
+    <Content Include="Content\Scripts\aas2.js" />
+    <Content Include="Content\Scripts\AJAX.js" />
+    <Content Include="Content\Scripts\IFRAMES\pym.js" />
+    <Content Include="Content\Scripts\jquery-1.11.2.min.js" />
+    <Content Include="Content\Scripts\jquery-ui.min.js" />
+    <Content Include="Content\Scripts\jquery.timepicker.js" />
+    <Content Include="Content\Scripts\Maps\map3.js" />
+    <Content Include="Content\Scripts\markerwithlabel.js" />
+    <Content Include="Content\Scripts\SmartForm.js" />
+    <Content Include="Content\Scripts\SmartTable.js" />
+    <Content Include="Content\Scripts\SubCode.js" />
+    <Content Include="Content\Scripts\SubTest.js" />
+    <Content Include="Content\system.base.css" />
+    <Content Include="Content\system.menus.css" />
+    <Content Include="Content\system.messages.css" />
+    <Content Include="Content\system.theme.css" />
+    <Content Include="favicon-16x16.png" />
+    <Content Include="favicon-32x32.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="google5acc82aef12cf7c5.html" />
+    <Content Include="Images\EPDLogo_FINAL.png" />
+    <Content Include="Images\header-bg.png" />
+    <Content Include="MasterPage.Master" />
+    <Content Include="Content\fonts\Adobe_Garamond_Pro_Bold.ttf" />
+    <Content Include="Content\data\ErrorsWarnings.xlsx" />
+    <Content Include="Content\data\V_Ch_3.pdf" />
+    <Content Include="manifest.json" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="My Project\PublishProfiles\DevFolderProfile.pubxml" />
+    <None Include="My Project\PublishProfiles\ProdFolderProfile.pubxml" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Content Include="clearcache.aspx" />
+    <Content Include="css\style.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="errorpage.aspx" />
+    <Content Include="Images\bullet.gif" />
+    <Content Include="Images\bullet_child.gif" />
+    <Content Include="Images\indicator_smallwaitanim.gif" />
+    <Content Include="mstile-150x150.png" />
+    <Content Include="permit.aspx" />
+    <Content Include="safari-pinned-tab.svg" />
+    <Content Include="web.config" />
+    <None Include="packages.config" />
+    <None Include="web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49646</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44340/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

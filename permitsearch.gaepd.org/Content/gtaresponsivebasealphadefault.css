@@ -1,0 +1,18 @@
+.field-name-field-structured-images img {
+  width: 100% !important;
+  height: auto !important;
+}
+.box-rotator-pager {
+  bottom: 20px;
+}
+/* Make blog author style bigger */
+.page-node #region-content div#node-blog-entry-full-group-author-data {
+  width: 180px;
+}
+.page-node #region-content div#node-blog-entry-full-group-author-data .field-name-field-author {
+  font-size: 20px;
+}
+.page-node #region-content div#node-blog-entry-full-group-author-data img {
+  max-width: 170px;
+  margin-bottom: 10px;
+}
