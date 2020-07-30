@@ -324,7 +324,6 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\PublishProfiles\CustomProfile.pubxml" />
     <None Include="My Project\PublishProfiles\DevFolderProfile.pubxml" />
     <None Include="My Project\PublishProfiles\ProdFolderProfile.pubxml" />
     <None Include="My Project\Settings.settings">
@@ -343,12 +342,17 @@
     <Content Include="permit.aspx" />
     <Content Include="safari-pinned-tab.svg" />
     <Content Include="web.config" />
+    <Content Include="web.configBuilder.Server-sample.xml" />
+    <Content Include="web.configBuilder.xml" />
     <None Include="packages.config" />
-    <None Include="web.Debug.config">
-      <DependentUpon>web.config</DependentUpon>
+    <None Include="web.configBuilder.Debug.xml">
+      <DependentUpon>web.configBuilder.xml</DependentUpon>
     </None>
-    <None Include="web.Release.config">
-      <DependentUpon>web.config</DependentUpon>
+    <None Include="web.configBuilder.Staging.xml">
+      <DependentUpon>web.configBuilder.xml</DependentUpon>
+    </None>
+    <None Include="web.configBuilder.Release.xml">
+      <DependentUpon>web.configBuilder.xml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -370,6 +374,16 @@
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>permitsearch.gaepd.org.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
@@ -381,6 +395,9 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="BeforeBuild">
+    <TransformXml Source="web.configBuilder.xml" Destination="web.config" Transform="web.configBuilder.$(Configuration).xml" />
+  </Target>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
@@ -397,7 +414,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

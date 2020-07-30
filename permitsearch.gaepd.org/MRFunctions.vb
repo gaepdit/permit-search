@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Public Module MRFunctions
 
     Public OracleDate As String = Format(Date.Today, "dd-MMM-yyyy")
-    Public strDBConnection As String = System.Configuration.ConfigurationManager.ConnectionStrings("SqlConnectionString").ToString
+    Public strDBConnection As String = ConfigurationManager.ConnectionStrings("SqlConnectionString").ToString
     Public Sub ErrorReport(ByVal errormsg As String)
         Dim IPAddress = HttpContext.Current.Request.ServerVariables("REMOTE_ADDR")
         Dim URL = HttpContext.Current.Request.Url.AbsoluteUri
