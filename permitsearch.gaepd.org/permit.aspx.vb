@@ -19,7 +19,7 @@ Public Class permit
 
         If file = "" Then
             NoPermit.Visible = True
-            Exit Sub
+            Return
         End If
 
         Dim ext As String = Mid(file, 1, 3)
