@@ -324,7 +324,9 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\Dev Publish.pubxml" />
     <None Include="My Project\PublishProfiles\DevFolderProfile.pubxml" />
+    <None Include="My Project\PublishProfiles\Prod Publish.pubxml" />
     <None Include="My Project\PublishProfiles\ProdFolderProfile.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
