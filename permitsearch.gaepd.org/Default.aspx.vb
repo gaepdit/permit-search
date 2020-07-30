@@ -7,7 +7,7 @@ Public Class _Default
     Public charsToTrim As Char() = {"="c, "*"c, """"c, ";"c, "'"c, " "c, "?"c, "%"c, "!"c, "~"c, "@"c, "#"c, "<"c, ">"c}
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        If Not IsPostBack And Request.QueryString("AirsNumber") <> "" Then
+        If Not IsPostBack AndAlso Request.QueryString("AirsNumber") <> "" Then
             txtAirsNo.Entries.Insert(0, New AutoCompleteBoxEntry(Request.QueryString("AirsNumber")))
             rblPermitType.SelectedValue = "All"
             SearchPermits()
