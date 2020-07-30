@@ -115,13 +115,6 @@
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="errorpage.aspx.designer.vb">
-      <DependentUpon>errorpage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="errorpage.aspx.vb">
-      <DependentUpon>errorpage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="MasterPage.Master.designer.vb">
       <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
@@ -331,7 +324,6 @@
     <Content Include="clearcache.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
-    <Content Include="errorpage.aspx" />
     <Content Include="Images\bullet.gif" />
     <Content Include="Images\bullet_child.gif" />
     <Content Include="Images\indicator_smallwaitanim.gif" />
