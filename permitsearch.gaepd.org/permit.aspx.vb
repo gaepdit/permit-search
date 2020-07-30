@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 
 Public Class permit
     Inherits Page
@@ -6,7 +6,7 @@ Public Class permit
     Public ReadOnly Property RaygunApiKey = CType(ConfigurationManager.GetSection("RaygunSettings"), Mindscape.Raygun4Net.RaygunSettings).ApiKey
 
     Dim file As String
-    Dim MyData() As Byte
+    Dim MyData As Byte()
 
     Protected Sub lbtReturn_Click(ByVal sender As Object, ByVal e As EventArgs) Handles lbtReturn.Click
         Response.Write("<script language='javascript'> { window.close();}</script>")

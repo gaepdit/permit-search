@@ -4,7 +4,7 @@ Imports Telerik.Web.UI
 Public Class _Default
     Inherits System.Web.UI.Page
 
-    Public charsToTrim() As Char = {"="c, "*"c, """"c, ";"c, "'"c, " "c, "?"c, "%"c, "!"c, "~"c, "@"c, "#"c, "<"c, ">"c}
+    Public charsToTrim As Char() = {"="c, "*"c, """"c, ";"c, "'"c, " "c, "?"c, "%"c, "!"c, "~"c, "@"c, "#"c, "<"c, ">"c}
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack And Request.QueryString("AirsNumber") <> "" Then
