@@ -1,4 +1,4 @@
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 
 Public Class permit
     Inherits Page
@@ -47,7 +47,7 @@ Public Class permit
                 Response.ClearContent()
                 Response.Buffer = True
                 Response.ContentType = "application/pdf"
-                Response.AddHeader("content-disposition", "inline;filename=" + file + ".pdf")
+                Response.AddHeader("content-disposition", "inline;filename=" & file & ".pdf")
                 Response.Charset = ""
                 Response.Cache.SetCacheability(HttpCacheability.NoCache)
                 Response.BinaryWrite(MyData)
@@ -86,7 +86,7 @@ Public Class permit
                 Response.ClearContent()
                 Response.Buffer = True
                 Response.ContentType = "application/msword"
-                Response.AddHeader("content-disposition", "inline;filename=" + file + ".doc")
+                Response.AddHeader("content-disposition", "inline;filename=" & file & ".doc")
                 Response.Charset = ""
                 Response.Cache.SetCacheability(HttpCacheability.NoCache)
                 Response.BinaryWrite(MyData)
