@@ -1,8 +1,8 @@
-<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="permit.aspx.vb" Inherits="permitsearch.gaepd.org.permit" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="permit.aspx.vb" Inherits="permitsearch.gaepd.org.permit" %>
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-    <title>GA Air - Permits</title>
+    <title>Georgia Air Permit Not Found</title>
     <script type="text/javascript">
       !function(a,b,c,d,e,f,g,h){a.RaygunObject=e,a[e]=a[e]||function(){
       (a[e].o=a[e].o||[]).push(arguments)},f=b.createElement(c),g=b.getElementsByTagName(c)[0],

@@ -4,7 +4,7 @@
 <html lang="en-us">
 <head runat="server">
     <meta charset="utf-8" />
-    <title>GA Air - Permits</title>
+    <title>Georgia Air Permit Search Engine</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=69kRrvbXdL">
     <link rel="icon" type="image/png" href="/favicon-32x32.png?v=69kRrvbXdL" sizes="32x32">
     <link rel="icon" type="image/png" href="/favicon-16x16.png?v=69kRrvbXdL" sizes="16x16">
