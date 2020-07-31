@@ -22,6 +22,7 @@ Public Class _Default
         Dim searchstr As String
         pnlHelp.Visible = False
         lbtHelp.Visible = True
+
         Dim dataViews As DataView = New DataView()
         If (Cache("AllPermits") Is Nothing) Then
             PopulatePermitsGridView()
@@ -32,14 +33,16 @@ Public Class _Default
         Dim str As String = txtAirsNo.Text
         str = str.Substring(0, str.IndexOf(";") + 1).Trim(charsToTrim)
         str = Replace(str, """", "")
+
         Dim str1 As String = txtFacility.Text
         str1 = str1.Substring(0, str1.IndexOf(";") + 1).Trim(charsToTrim)
         str1 = Replace(str1, """", "")
         str1 = Replace(str1, "'", "''")
+
         Dim str2 As String = txtSIC.Text
         str2 = str2.Trim(charsToTrim)
-        'str2 = str2.Substring(0, str2.IndexOf(";") + 1).Trim(charsToTrim)
         str2 = Replace(str2, """", "")
+
         Dim selectedValue As String = rblPermitType.SelectedValue
 
         If selectedValue = "PSD" Then
@@ -116,7 +119,6 @@ Public Class _Default
             Dim item As GridDataItem = DirectCast(e.Item, GridDataItem)
             Dim hyperLink As HyperLink = DirectCast(item.FindControl("hlFinalPermit"), HyperLink)
             Dim hyperLink1 As HyperLink = DirectCast(item.FindControl("hlNarrative"), HyperLink)
-            'DirectCast(e.Item, GridDataItem)).GetDataKeyValue("CustomerID").ToString()
             hyperLink.Text = DirectCast(e.Item, GridDataItem).GetDataKeyValue("permitNumber").ToString()
             hyperLink.Text = HighlightText(txtSIC.Text, hyperLink.Text)
             hyperLink1.Text = DirectCast(e.Item, GridDataItem).GetDataKeyValue("permitNumber").ToString()
@@ -196,14 +198,6 @@ Public Class _Default
         lbtHelp.Visible = True
         txtAirsNo.Entries.Clear()
         txtFacility.Entries.Clear()
-        'Dim count As Integer = txtAirsNo.Entries.Count
-        'If count > 0 Then
-        '    txtAirsNo.Entries.RemoveAt(count - 1)
-        'End If
-        'Dim count1 As Integer = txtFacility.Entries.Count
-        'If count1 > 0 Then
-        '    txtFacility.Entries.RemoveAt(count1 - 1)
-        'End If
         txtSIC.Text = ""
         Dim dataViews As DataView = New DataView()
         If (Cache("AllPermits") Is Nothing) Then

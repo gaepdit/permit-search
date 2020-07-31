@@ -1,9 +1,7 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="permit.aspx.vb" Inherits="permitsearch.gaepd.org.permit" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="permit.aspx.vb" Inherits="permitsearch.gaepd.org.permit" %>
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
     <title>GA Air - Permits</title>
     <script type="text/javascript">
       !function(a,b,c,d,e,f,g,h){a.RaygunObject=e,a[e]=a[e]||function(){
@@ -14,16 +12,7 @@
     </script>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
-    <asp:Label id="lblFileName" runat="server" Visible="false"></asp:Label>
-    <asp:Panel ID="NoPermit" runat="server" Visible="false">
-    <h4>Permit File currently not in database</h4>    
-    <br />
-    <asp:LinkButton ID="lbtReturn" runat="server" Text="Return to Permit Search Engine"></asp:LinkButton>
-    </asp:Panel>
-    </div>
-    </form>
+    <h1>Permit file not found.</h1>    
     <script type="text/javascript">
         rg4js('apiKey', '<%= RaygunApiKey %>');
         rg4js('enableCrashReporting', true);
