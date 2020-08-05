@@ -15,4 +15,5 @@
   <connectionStrings>
     <add name="SqlConnectionString" connectionString="{add connection string here}" xdt:Transform="SetAttributes" xdt:Locator="Match(name)" />
   </connectionStrings>
+  <RaygunSettings apikey="{add API key here}" xdt:Transform="SetAttributes" />
 </configuration
