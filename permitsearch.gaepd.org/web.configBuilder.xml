@@ -6,7 +6,7 @@
   <connectionStrings>
     <add name="SqlConnectionString" connectionString="" />
   </connectionStrings>
-  <RaygunSettings apikey="" excludeHttpStatusCodes="404" excludeErrorsFromLocal="true" applicationVersion="1.0.0" />
+  <RaygunSettings apikey="" excludeHttpStatusCodes="404" excludeErrorsFromLocal="true" applicationVersion="1.0.1" />
   <appSettings>
     <add key="Telerik.Web.UI.RenderMode" value="lightweight" />
     <add key="Telerik.Skin" value="Bootstrap" />
