@@ -33,22 +33,23 @@ Public Class permit
             sql = "SELECT docpermitdata FROM apbpermits WHERE strFILENAME = @filename "
         End If
 
-        Dim MyData As Byte()
-
+        Dim result As Object
         Using connection As New SqlConnection(strDBConnection)
             Using command As New SqlCommand(sql, connection)
                 command.CommandType = CommandType.Text
                 command.Parameters.AddWithValue("@filename", filename)
                 command.Connection.Open()
-                MyData = command.ExecuteScalar()
+                result = command.ExecuteScalar()
                 command.Connection.Close()
             End Using
         End Using
 
-        If MyData Is Nothing Then
+        If result Is Nothing OrElse IsDBNull(result) Then
             Response.StatusCode = HttpStatusCode.NotFound
             Return
         End If
+
+        Dim MyData As Byte() = result
 
         Response.Clear()
         Response.ClearHeaders()
