@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports Telerik.Web.UI
 
 Public Class _Default
@@ -21,7 +21,6 @@ Public Class _Default
     Protected Sub SearchPermits()
         Dim searchstr As String
         pnlHelp.Visible = False
-        lbtHelp.Visible = True
 
         Dim dataViews As DataView = New DataView()
         If (Cache("AllPermits") Is Nothing) Then
@@ -195,7 +194,6 @@ Public Class _Default
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         pnlHelp.Visible = False
-        lbtHelp.Visible = True
         txtAirsNo.Entries.Clear()
         txtFacility.Entries.Clear()
         txtSIC.Text = ""
