@@ -1,4 +1,4 @@
-<%@ Page Language="VB" MasterPageFile="~/MasterPage.Master" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="permitsearch.gaepd.org._Default" %>
+﻿<%@ Page Language="VB" MasterPageFile="~/MasterPage.Master" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="permitsearch.gaepd.org._Default" %>
 <%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">      
@@ -53,8 +53,7 @@ legend {color:black;
                 <table style="width: 97%;">
                     <tr>
                         <td>
-                            AIRS Number:
-                      
+                            AIRS Number:                      
                                                    
                             <telerik:RadAutoCompleteBox RenderMode="Lightweight" ID="txtAirsNo" runat="server" Width="200px" DropDownWidth="200px" DropDownHeight="250px" 
                                 DataSourceID="SqlDataSource1" DataTextField="strairsnumber" EmptyMessage="Select a AIRS Number" Filter="StartsWith"
@@ -132,16 +131,8 @@ legend {color:black;
                 OnPageIndexChanged="RadGrid1_PageIndexChanged" OnPageSizeChanged="RadGrid1_PageSizeChanged">
                 <MasterTableView Summary="RadGrid table" DataKeyNames="permitNumber,VNarrative,VFinal,PSDNarrative,PSDFinal,OtherNarrative,OtherPermit">
                     <Columns>
-                        <telerik:GridTemplateColumn HeaderText="AIRS Number" SortExpression="AIRSNumber">
-                            <ItemTemplate>
-                                <asp:Label ID="Label1" runat="server" Text='<%# HighlightText(txtAirsNo.Text, Eval("Airsnumber") & "") %>'></asp:Label>
-                            </ItemTemplate>
-                        </telerik:GridTemplateColumn>
-                        <telerik:GridTemplateColumn HeaderText="Facility Name" SortExpression="strfacilityname">
-                            <ItemTemplate>
-                                <asp:Label ID="Label2" runat="server" Text='<%# HighlightText(txtFacility.Text, Eval("strfacilityname") & "") %>'></asp:Label>
-                            </ItemTemplate>
-                        </telerik:GridTemplateColumn>
+                        <telerik:GridBoundColumn DataField="AIRSNumber" HeaderText="AIRS Number" SortExpression="AIRSNumber" />
+                        <telerik:GridBoundColumn DataField="strfacilityname" HeaderText="Facility Name" SortExpression="strfacilityname" />
                         <telerik:GridBoundColumn DataField="issuancedate" HeaderText="Issuance Date" SortExpression="issuancedate"
                             DataFormatString="{0:d}" HtmlEncode="false" />
                         <telerik:GridTemplateColumn HeaderText="Final Permit" SortExpression="permitNumber">
@@ -165,16 +156,8 @@ legend {color:black;
                 OnPageIndexChanged="RadGrid1_PageIndexChanged" OnPageSizeChanged="RadGrid1_PageSizeChanged">
                 <MasterTableView Summary="RadGrid table" DataKeyNames="permitNumber,PSDFinal">
                     <Columns>
-                        <telerik:GridTemplateColumn HeaderText="AIRS Number" SortExpression="AIRSNumber">
-                            <ItemTemplate>
-                                <asp:Label ID="Label3" runat="server" Text='<%# HighlightText(txtAirsNo.Text, Eval("Airsnumber") & "") %>'></asp:Label>
-                            </ItemTemplate>
-                        </telerik:GridTemplateColumn>
-                        <telerik:GridTemplateColumn HeaderText="Facility Name" SortExpression="strfacilityname">
-                            <ItemTemplate>
-                                <asp:Label ID="Label4" runat="server" Text='<%# HighlightText(txtFacility.Text, Eval("strfacilityname") & "") %>'></asp:Label>
-                            </ItemTemplate>
-                        </telerik:GridTemplateColumn>
+                        <telerik:GridBoundColumn DataField="AIRSNumber" HeaderText="AIRS Number" SortExpression="AIRSNumber" />
+                        <telerik:GridBoundColumn DataField="strfacilityname" HeaderText="Facility Name" SortExpression="strfacilityname" />
                         <telerik:GridBoundColumn DataField="issuancedate" HeaderText="Issuance Date" SortExpression="issuancedate"
                             DataFormatString="{0:d}" HtmlEncode="false" />
                         <telerik:GridTemplateColumn HeaderText="Final Permit" SortExpression="permitNumber">
@@ -221,7 +204,7 @@ legend {color:black;
        
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ProviderName="System.Data.SqlClient" ConnectionString="<%$ ConnectionStrings:SqlConnectionString %>"
-        SelectCommand="Select DISTINCT substring(strairsnumber, 5, LEN(strairsnumber)) as strairsnumber, Upper(strfacilityname) as facilityname from APBFacilityInformation order by strairsnumber">
+        SelectCommand="Select DISTINCT substring(strairsnumber, 5, 12) as strairsnumber, Upper(strfacilityname) as facilityname from APBFacilityInformation order by strairsnumber">
     </asp:SqlDataSource>
     <%--</form>--%>
 </asp:Content>

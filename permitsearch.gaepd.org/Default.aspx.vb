@@ -1,4 +1,4 @@
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports Telerik.Web.UI
 
 Public Class _Default
@@ -105,8 +105,7 @@ Public Class _Default
                     conn.Close()
                 End Using
             End Using
-            Dim now As DateTime = DateTime.Now
-            Me.Cache.Insert("AllPermits", dataTable, Nothing, now.AddHours(12), Cache.NoSlidingExpiration)
+            Me.Cache.Insert("AllPermits", dataTable, Nothing, Now.AddHours(12), Cache.NoSlidingExpiration)
             Me.Session("MyView") = dataTable
         End If
 
@@ -119,9 +118,7 @@ Public Class _Default
             Dim hyperLink As HyperLink = DirectCast(item.FindControl("hlFinalPermit"), HyperLink)
             Dim hyperLink1 As HyperLink = DirectCast(item.FindControl("hlNarrative"), HyperLink)
             hyperLink.Text = DirectCast(e.Item, GridDataItem).GetDataKeyValue("permitNumber").ToString()
-            hyperLink.Text = HighlightText(txtSIC.Text, hyperLink.Text)
             hyperLink1.Text = DirectCast(e.Item, GridDataItem).GetDataKeyValue("permitNumber").ToString()
-            hyperLink1.Text = HighlightText(txtSIC.Text, hyperLink1.Text)
             Dim text As String = item("fileType").Text
             If text = "SIP" Then
                 hyperLink.NavigateUrl = String.Concat("~/permit.aspx?id=", DirectCast(e.Item, GridDataItem).GetDataKeyValue("OtherPermit").ToString())
@@ -144,24 +141,10 @@ Public Class _Default
             Dim item As GridDataItem = DirectCast(e.Item, GridDataItem)
             Dim hyperLink As HyperLink = DirectCast(item.FindControl("hlPSDFinalPermit"), HyperLink)
             hyperLink.Text = DirectCast(e.Item, GridDataItem).GetDataKeyValue("permitNumber").ToString()
-            hyperLink.Text = HighlightText(String.Concat(txtSIC.Text, ""), hyperLink.Text)
             hyperLink.NavigateUrl = String.Concat("~/permit.aspx?id=", DirectCast(e.Item, GridDataItem).GetDataKeyValue("PSDFinal").ToString())
         End If
 
     End Sub
-
-    Public Function HighlightText(ByVal Search_Str As String, ByVal InputTxt As String) As String
-
-        If Search_Str = "" Then
-            Return InputTxt
-        End If
-        Search_Str = Search_Str.Trim(charsToTrim)
-        Search_Str = Replace(Search_Str, """", "")
-        Dim regex As Regex = New Regex(Search_Str.Replace(" ", "|").Trim(), RegexOptions.IgnoreCase)
-        Return regex.Replace(InputTxt, New MatchEvaluator(AddressOf ReplaceWords))
-    End Function
-
-
 
     Protected Sub RadGrid1_PageIndexChanged(ByVal source As Object, ByVal e As GridPageChangedEventArgs)
         SearchPermits()
