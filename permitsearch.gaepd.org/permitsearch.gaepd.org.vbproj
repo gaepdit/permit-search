@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -281,18 +281,6 @@
     <Content Include="Content\images\View.png" />
     <Content Include="Content\images\yellow_rect.png" />
     <Content Include="Content\responsive.css" />
-    <Content Include="Content\Scripts\aas2.js" />
-    <Content Include="Content\Scripts\AJAX.js" />
-    <Content Include="Content\Scripts\IFRAMES\pym.js" />
-    <Content Include="Content\Scripts\jquery-1.11.2.min.js" />
-    <Content Include="Content\Scripts\jquery-ui.min.js" />
-    <Content Include="Content\Scripts\jquery.timepicker.js" />
-    <Content Include="Content\Scripts\Maps\map3.js" />
-    <Content Include="Content\Scripts\markerwithlabel.js" />
-    <Content Include="Content\Scripts\SmartForm.js" />
-    <Content Include="Content\Scripts\SmartTable.js" />
-    <Content Include="Content\Scripts\SubCode.js" />
-    <Content Include="Content\Scripts\SubTest.js" />
     <Content Include="Content\system.base.css" />
     <Content Include="Content\system.menus.css" />
     <Content Include="Content\system.messages.css" />
