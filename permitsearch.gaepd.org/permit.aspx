@@ -17,6 +17,7 @@
         rg4js('apiKey', '<%= RaygunApiKey %>');
         rg4js('enableCrashReporting', true);
         rg4js('enablePulse', true);
+        rg4js('options', { ignore3rdPartyErrors: true });
     </script>
 </body>
 </html>
