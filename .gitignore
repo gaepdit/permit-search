@@ -399,3 +399,7 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,visualstudio
+
+# Bug fix for Telerik controls
+# https://www.telerik.com/support/kb/aspnet-ajax/details/how-to-fix-license-file-related-errors
+licenses.licx
