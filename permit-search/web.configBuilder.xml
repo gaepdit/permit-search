@@ -70,4 +70,12 @@
       <add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule"/>
     </modules>
   </system.webServer>
+  <runtime>
+    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+      <dependentAssembly>
+        <assemblyIdentity name="Telerik.Web.UI" publicKeyToken="121fae78165ba3d4" />
+        <bindingRedirect oldVersion="0.0.0.0-2021.1.214.45" newVersion="2021.1.214.45" />
+      </dependentAssembly>
+    </assemblyBinding>
+  </runtime>
 </configuration>
