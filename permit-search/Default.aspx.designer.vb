@@ -95,15 +95,6 @@ Partial Public Class _Default
     Protected WithEvents txtSIC As Global.Telerik.Web.UI.RadTextBox
 
     '''<summary>
-    '''rblPermitType control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rblPermitType As Global.System.Web.UI.WebControls.RadioButtonList
-
-    '''<summary>
     '''btnSearch control.
     '''</summary>
     '''<remarks>
@@ -122,33 +113,6 @@ Partial Public Class _Default
     Protected WithEvents btnClear As Global.Telerik.Web.UI.RadButton
 
     '''<summary>
-    '''pnlHelp control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents pnlHelp As Global.System.Web.UI.WebControls.Panel
-
-    '''<summary>
-    '''RadWindowManager1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents RadWindowManager1 As Global.Telerik.Web.UI.RadWindowManager
-
-    '''<summary>
-    '''HelpWindow control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents HelpWindow As Global.Telerik.Web.UI.RadWindow
-
-    '''<summary>
     '''gvwPermits control.
     '''</summary>
     '''<remarks>
@@ -156,15 +120,6 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents gvwPermits As Global.Telerik.Web.UI.RadGrid
-
-    '''<summary>
-    '''gvwPSDPermits control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents gvwPSDPermits As Global.Telerik.Web.UI.RadGrid
 
     '''<summary>
     '''SqlDataSource1 control.

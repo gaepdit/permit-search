@@ -26,21 +26,24 @@ Public Class permit
             Return
         End If
 
-        Dim sql As String
+        Dim query As String
         If ext = "PDF" Then
-            sql = "SELECT pdfpermitdata FROM apbpermits WHERE strFILENAME = @filename "
+            query = "SELECT pdfpermitdata FROM apbpermits WHERE strFILENAME = @filename "
         Else
-            sql = "SELECT docpermitdata FROM apbpermits WHERE strFILENAME = @filename "
+            query = "SELECT docpermitdata FROM apbpermits WHERE strFILENAME = @filename "
         End If
 
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("SqlConnectionString").ConnectionString
         Dim result As Object
-        Using connection As New SqlConnection(strDBConnection)
-            Using command As New SqlCommand(sql, connection)
+
+        Using connection As New SqlConnection(connectionString)
+            Using command As New SqlCommand(query, connection)
                 command.CommandType = CommandType.Text
                 command.Parameters.AddWithValue("@filename", filename)
                 command.Connection.Open()
                 result = command.ExecuteScalar()
                 command.Connection.Close()
+                command.Parameters.Clear()
             End Using
         End Using
 
@@ -49,7 +52,6 @@ Public Class permit
             Return
         End If
 
-        Dim MyData As Byte() = result
 
         Response.Clear()
         Response.ClearHeaders()
@@ -66,7 +68,7 @@ Public Class permit
 
         Response.Charset = ""
         Response.Cache.SetCacheability(HttpCacheability.Public)
-        Response.BinaryWrite(MyData)
+        Response.BinaryWrite(CType(result, Byte()))
         Response.Flush()
         Response.End()
     End Sub

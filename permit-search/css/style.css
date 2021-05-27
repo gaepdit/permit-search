@@ -7,8 +7,6 @@ html {
     width: 100%;
 }
 
-
-
 header {
     width: 100%;
     position: relative;
@@ -42,7 +40,6 @@ div#apptitle {
     padding: 20px;
 }
 
-
     .maincontent p {
         margin-bottom: 15px;
         margin-top: 5px;
@@ -75,7 +72,6 @@ div#apptitle {
     text-align: center;
     padding: 5px;
 }
-
 
 .infoWindow {
     line-height: normal;
@@ -111,4 +107,32 @@ ol.niceList {
     list-style: decimal;
     background-image: none;
     padding-left: 0em;
+}
+
+.rgMasterTable td {
+    vertical-align: baseline;
+    line-height: 1.6;
+    padding: 6px 15px !important;
+}
+
+/* Utility classes */
+.db {
+    display: block;
+}
+
+/* RadGrid overrides */
+.RadGrid .rgPagerCell {
+    padding: 10px 4px !important;
+}
+
+.RadGrid .rgHeader a {
+    text-decoration: underline !important;
+}
+
+.RadGrid_Bootstrap .rgRow,
+.RadGrid_Bootstrap .rgAltRow,
+.RadGrid_Bootstrap .rgEditRow,
+.RadGrid_Bootstrap .rgFooter,
+.RadGrid_Bootstrap .rgGroupHeader {
+    height: auto !important;
 }

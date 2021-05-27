@@ -101,13 +101,8 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clearcache.aspx.designer.vb">
-      <DependentUpon>clearcache.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="clearcache.aspx.vb">
-      <DependentUpon>clearcache.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
+    <Compile Include="DAL\ApbFacilityId.vb" />
+    <Compile Include="DAL\PermitSearch.vb" />
     <Compile Include="Default.aspx.designer.vb">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
@@ -115,14 +110,13 @@
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPage.Master.designer.vb">
-      <DependentUpon>MasterPage.Master</DependentUpon>
+    <Compile Include="Main.Master.designer.vb">
+      <DependentUpon>Main.Master</DependentUpon>
     </Compile>
-    <Compile Include="MasterPage.Master.vb">
-      <DependentUpon>MasterPage.Master</DependentUpon>
+    <Compile Include="Main.Master.vb">
+      <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MRFunctions.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -292,7 +286,7 @@
     <Content Include="google5acc82aef12cf7c5.html" />
     <Content Include="Images\EPDLogo_FINAL.png" />
     <Content Include="Images\header-bg.png" />
-    <Content Include="MasterPage.Master" />
+    <Content Include="Main.Master" />
     <Content Include="Content\fonts\Adobe_Garamond_Pro_Bold.ttf" />
     <Content Include="Content\data\ErrorsWarnings.xlsx" />
     <Content Include="Content\data\V_Ch_3.pdf" />
@@ -310,7 +304,6 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
-    <Content Include="clearcache.aspx" />
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Images\bullet.gif" />
@@ -390,7 +383,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
