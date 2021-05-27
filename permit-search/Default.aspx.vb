@@ -1,4 +1,4 @@
-﻿Imports System.Data.SqlClient
+Imports System.Data.SqlClient
 Imports Telerik.Web.UI
 
 Public Class _Default
@@ -51,7 +51,6 @@ Public Class _Default
             searchstr &= "%' and fileType LIKE '%PSD%'"
             dataViews.RowFilter = searchstr
             gvwPSDPermits.DataSource = dataViews
-            Session("MyView") = dataViews.ToTable()
             gvwPSDPermits.DataBind()
             gvwPSDPermits.Visible = True
             gvwPermits.Visible = False
@@ -62,7 +61,6 @@ Public Class _Default
             searchstr &= "%' and fileType LIKE '%SIP%'"
             dataViews.RowFilter = searchstr
             gvwPermits.DataSource = dataViews
-            Session("MyView") = dataViews.ToTable()
             gvwPermits.DataBind()
             gvwPermits.Visible = True
             gvwPSDPermits.Visible = False
@@ -73,7 +71,6 @@ Public Class _Default
             searchstr &= "%' and fileType LIKE '%Title V%'"
             dataViews.RowFilter = searchstr
             gvwPermits.DataSource = dataViews
-            Session("MyView") = dataViews.ToTable()
             gvwPermits.DataBind()
             gvwPermits.Visible = True
             gvwPSDPermits.Visible = False
@@ -84,7 +81,6 @@ Public Class _Default
             searchstr &= "%'"
             dataViews.RowFilter = searchstr
             gvwPermits.DataSource = dataViews
-            Session("MyView") = dataViews.ToTable()
             gvwPermits.DataBind()
             gvwPermits.Visible = True
             gvwPSDPermits.Visible = False
@@ -106,7 +102,6 @@ Public Class _Default
                 End Using
             End Using
             Me.Cache.Insert("AllPermits", dataTable, Nothing, Now.AddHours(12), Cache.NoSlidingExpiration)
-            Me.Session("MyView") = dataTable
         End If
 
     End Sub
@@ -187,7 +182,6 @@ Public Class _Default
         Dim item As DataTable = DirectCast(Cache("AllPermits"), DataTable).Copy
         dataViews.Table = item
         gvwPermits.DataSource = dataViews
-        Session("MyView") = dataViews.ToTable()
         gvwPermits.DataBind()
         gvwPermits.Visible = True
         gvwPSDPermits.Visible = False
