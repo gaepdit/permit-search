@@ -67,13 +67,13 @@
         </telerik:RadAjaxLoadingPanel>
         <telerik:RadAjaxPanel ID="AjaxPanel1" runat="server" LoadingPanelID="LoadingPanel1">
             <telerik:RadGrid ID="gvwPermits" runat="server"
-                AllowCustomPaging="True" AllowPaging="true" AutoGenerateColumns="False"
+                AllowCustomPaging="True" AllowPaging="true" AllowSorting="true" AutoGenerateColumns="False"
                 PagerStyle-PageSizeControlType="None" PagerStyle-Position="TopAndBottom" PageSize="20" Visible="False">
                 <MasterTableView DataKeyNames="PermitNumber,VNarrative,VFinal,PSDNarrative,PSDFinal,OtherNarrative,OtherPermit,PSDPrelim,PSDFinalDet,PSDAppSum">
                     <Columns>
                         <telerik:GridBoundColumn DataField="AIRSNumber" HeaderText="AIRS Number" />
                         <telerik:GridBoundColumn DataField="FacilityName" HeaderText="Facility Name" />
-                        <telerik:GridTemplateColumn HeaderText="Permit">
+                        <telerik:GridTemplateColumn HeaderText="Permit" SortExpression="PermitNumber" >
                             <ItemTemplate>
                                 <asp:HyperLink ID="hlFinalPermit" runat="server" Target="_blank" />
                             </ItemTemplate>
@@ -87,7 +87,7 @@
                                 <asp:HyperLink ID="hlAppSumm" runat="server" CssClass="db" Target="_blank" Text="Application Summary" />
                             </ItemTemplate>
                         </telerik:GridTemplateColumn>
-                        <telerik:GridBoundColumn DataField="fileType" HeaderText="Permit Type" />
+                        <telerik:GridBoundColumn DataField="fileType" HeaderText="Permit Type" AllowSorting="false" />
                     </Columns>
                 </MasterTableView>
                 <PagerStyle Mode="NextPrevAndNumeric" />

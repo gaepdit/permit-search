@@ -93,8 +93,19 @@ Public Class _Default
     End Sub
 
     Private Sub gvwPermits_NeedDataSource(sender As Object, e As GridNeedDataSourceEventArgs) Handles gvwPermits.NeedDataSource
+        Dim sortExpressions = gvwPermits.MasterTableView.SortExpressions
+
+        Dim sortColumn As String = ""
+        Dim sortDirection As String = ""
+
+        If sortExpressions.Count = 1 Then
+            sortColumn = sortExpressions(0).FieldName
+            sortDirection = sortExpressions(0).SortOrderAsString
+        End If
+
         gvwPermits.DataSource = GetPermits(gvwPermits.CurrentPageIndex, gvwPermits.PageSize,
-                                           txtAirsNo.Text, txtFacility.Text, txtSIC.Text)
+                                           txtAirsNo.Text, txtFacility.Text, txtSIC.Text,
+                                           sortColumn, sortDirection)
         gvwPermits.VirtualItemCount = GetPermitsCount(txtAirsNo.Text, txtFacility.Text, txtSIC.Text)
     End Sub
 End Class

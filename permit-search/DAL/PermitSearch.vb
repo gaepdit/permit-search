@@ -1,9 +1,17 @@
 ﻿Imports System.Data.SqlClient
+Imports System.Linq
 
 Module PermitSearch
 
+    Private ReadOnly sortableColumns As New List(Of String) From {"AIRSNumber", "FacilityName", "IssuanceDate", "PermitNumber"}
+    Private ReadOnly sortDirections As New List(Of String) From {"ASC", "DESC"}
+
     Public Function GetPermits(currentPageIndex As Integer, pageSize As Integer,
-                               airs As String, name As String, permit As String) As DataTable
+                               airs As String, name As String, permit As String,
+                               sortColumn As String, sortDirection As String) As DataTable
+
+        If Not sortableColumns.Contains(sortColumn) Then sortColumn = "AIRSNumber"
+        If Not sortDirections.Contains(sortDirection) Then sortDirection = "ASC"
 
         Dim query As String =
             "select ApplicationNumber, AIRSNumber, FacilityName, PermitNumber, 
@@ -13,8 +21,10 @@ Module PermitSearch
             where AIRSNumber like concat('%', @airs, '%')
               and FacilityName like concat('%', @name, '%')
               and PermitNumber like concat('%', @permit, '%')
-            order by AIRSNumber, IssuanceDate, ApplicationNumber
-            offset @skip rows fetch Next @take rows only"
+            order by " &
+            sortColumn & " " & sortDirection & "," &
+            String.Join(",", sortableColumns.Where(Function(v) v <> sortColumn)) &
+            " offset @skip rows fetch Next @take rows only"
 
         Dim parameterArray As SqlParameter() = {
             New SqlParameter("@airs", airs.TrimEnd({" "c, ";"c})),
