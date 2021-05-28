@@ -17,6 +17,7 @@ Public Class _Default
 
     Protected Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         gvwPermits.Visible = True
+        gvwPermits.CurrentPageIndex = 0
         gvwPermits.Rebind()
     End Sub
 

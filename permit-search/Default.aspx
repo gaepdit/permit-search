@@ -9,6 +9,9 @@
         function OnClientEntryAdded(sender, args) {
             sender.get_inputElement().disabled = true;
         }
+        function OnClientEntryRemoved(sender, args) {
+            sender.get_inputElement().disabled = false;
+        }
     </script>
 </asp:Content>
 
@@ -23,10 +26,6 @@
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" />
 
     <div class="maincontent" style="width: 97%; margin-bottom: 15px; height: 100%">
-        <telerik:RadAjaxLoadingPanel ID="LoadingPanel1" runat="Server" Transparency="30"
-            EnableSkinTransparency="false" BackColor="#E0E0E0">
-        </telerik:RadAjaxLoadingPanel>
-        <telerik:RadAjaxPanel ID="AjaxPanel1" runat="server" LoadingPanelID="LoadingPanel1">
             <asp:Panel ID="pnlSearch" runat="server">
                 <div class="div1" style="text-align: center; color: white; background-color: #203119; padding: 16px 0; line-height: 1.4;">
                     <h2>Georgia Air Protection Branch<br />
@@ -40,13 +39,15 @@
                             <telerik:RadAutoCompleteBox ID="txtAirsNo" runat="server" RenderMode="Lightweight"
                                 Width="200px" DropDownWidth="200px" DropDownHeight="250px"
                                 DataSourceID="SqlDataSource1" DataTextField="AIRS" EmptyMessage="Select an AIRS Number" Filter="StartsWith"
-                                InputType="Token" OnClientEntryAdded="OnClientEntryAdded" />
+                                OnClientEntryAdded="OnClientEntryAdded" OnClientEntryRemoved="OnClientEntryRemoved" 
+                                MinFilterLength="3" MaxResultCount="30" />
                         </td>
                         <td>Facility Name:
                             <telerik:RadAutoCompleteBox ID="txtFacility" runat="server" RenderMode="Lightweight"
                                 Width="320px" DropDownWidth="350px" DropDownHeight="300px"
-                                DataSourceID="SqlDataSource1" DataTextField="FACILITY" EmptyMessage="Select a Facility" Filter="Contains"
-                                AllowCustomEntry="True" InputType="Token" OnClientEntryAdded="OnClientEntryAdded" />
+                                DataSourceID="SqlDataSource2" DataTextField="FACILITY" EmptyMessage="Select a Facility"
+                                OnClientEntryAdded="OnClientEntryAdded" OnClientEntryRemoved="OnClientEntryRemoved" 
+                                MinFilterLength="2" MaxResultCount="30" AllowCustomEntry="True" />
                         </td>
 
                         <td>Permit Number/SIC Code:
@@ -54,14 +55,17 @@
                         </td>
                     </tr>
                 </table>
-                <br />
 
-                <telerik:RadButton runat="server" ID="btnSearch" Text="Search Permits" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
-                <telerik:RadButton runat="server" ID="btnClear" Text="Clear Search" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
-                <br />
-                <br />
+                <div style="margin: 20px 0;">
+                    <telerik:RadButton runat="server" ID="btnSearch" Text="Search Permits" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
+                    <telerik:RadButton runat="server" ID="btnClear" Text="Clear Search" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
+                </div>
             </asp:Panel>
 
+        <telerik:RadAjaxLoadingPanel ID="LoadingPanel1" runat="Server" Transparency="30"
+            EnableSkinTransparency="false" BackColor="#E0E0E0">
+        </telerik:RadAjaxLoadingPanel>
+        <telerik:RadAjaxPanel ID="AjaxPanel1" runat="server" LoadingPanelID="LoadingPanel1">
             <telerik:RadGrid ID="gvwPermits" runat="server"
                 AllowCustomPaging="True" AllowPaging="true" AutoGenerateColumns="False"
                 PagerStyle-PageSizeControlType="None" PagerStyle-Position="TopAndBottom" PageSize="20" Visible="False">
@@ -91,6 +95,8 @@
         </telerik:RadAjaxPanel>
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ProviderName="System.Data.SqlClient" ConnectionString="<%$ ConnectionStrings:SqlConnectionString %>"
-        SelectCommand="select concat(substring(STRAIRSNUMBER, 5, 3), '-', right(STRAIRSNUMBER, 5)) as AIRS, STRFACILITYNAME as FACILITY from dbo.APBFACILITYINFORMATION order by STRAIRSNUMBER" />
+        SelectCommand="select concat(substring(STRAIRSNUMBER, 5, 3), '-', right(STRAIRSNUMBER, 5)) as AIRS, STRFACILITYNAME as FACILITY from dbo.APBFACILITYINFORMATION order by 1" />
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ProviderName="System.Data.SqlClient" ConnectionString="<%$ ConnectionStrings:SqlConnectionString %>"
+        SelectCommand="select concat(substring(STRAIRSNUMBER, 5, 3), '-', right(STRAIRSNUMBER, 5)) as AIRS, STRFACILITYNAME as FACILITY from dbo.APBFACILITYINFORMATION order by 2" />
 </asp:Content>
 

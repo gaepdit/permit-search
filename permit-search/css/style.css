@@ -1,4 +1,4 @@
-﻿* {
+* {
     margin: 0;
     padding: 0;
 }
@@ -32,7 +32,6 @@ div#apptitle {
 }
 
 .maincontent {
-    min-width: 850px;
     background-color: #ffffff;
     color: #000;
     line-height: 1.714em;
@@ -109,7 +108,7 @@ ol.niceList {
     padding-left: 0em;
 }
 
-.rgMasterTable td {
+.rgMasterTable tbody td {
     vertical-align: baseline;
     line-height: 1.6;
     padding: 6px 15px !important;
