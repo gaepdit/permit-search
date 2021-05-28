@@ -32,7 +32,7 @@
     ''' </summary>
     Public ReadOnly Property FormattedString() As String
         Get
-            Return CountySubstring & "-" & Mid(ShortString, 4, 5)
+            Return CountySubstring & "-" & ShortString.Substring(3, 5)
         End Get
     End Property
 
@@ -41,7 +41,7 @@
     ''' </summary>
     Public ReadOnly Property PermitFormattedString() As String
         Get
-            Return CountySubstring & "-" & Mid(ShortString, 5, 4)
+            Return CountySubstring & "-" & ShortString.Substring(4, 4)
         End Get
     End Property
 
@@ -66,7 +66,7 @@
     ''' </summary>
     Public ReadOnly Property CountySubstring() As String
         Get
-            Return Mid(ShortString, 1, 3)
+            Return ShortString.Substring(0, 3)
         End Get
     End Property
 
@@ -114,7 +114,6 @@
     ''' <param name="airsNumber">The string to test</param>
     ''' <returns>True if airsNumber is valid; otherwise, False.</returns>
     ''' <remarks>Valid AIRS numbers are in the form 000-00000 or 04-13-000-0000 (with or without the dashes)</remarks>
-    <DebuggerStepThrough()>
     Public Shared Function IsValidAirsNumberFormat(airsNumber As String) As Boolean
         If airsNumber Is Nothing Then Return False
 
@@ -126,7 +125,6 @@
     ''' </summary>
     ''' <param name="airsNumber">The AIRS number to convert.</param>
     ''' <returns>A string representation of an AIRS number in the form "00000000".</returns>
-    <DebuggerStepThrough()>
     Private Shared Function GetNormalizedAirsNumber(airsNumber As String) As String
         ' Converts a string representation of an AIRS number to the "00000000" form 
         ' (eight numerals, no dashes).

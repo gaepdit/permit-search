@@ -14,13 +14,13 @@ Public Class permit
             Return
         End If
 
-        Dim ext As String = Mid(file, 1, 3)
+        Dim ext As String = file.Substring(0, 3)
         If Not {"PDF", "DOC"}.Contains(ext) Then
             Response.StatusCode = HttpStatusCode.NotFound
             Return
         End If
 
-        Dim filename As String = Mid(file, 5)
+        Dim filename As String = file.Substring(4)
         If String.IsNullOrEmpty(filename) Then
             Response.StatusCode = HttpStatusCode.NotFound
             Return
@@ -47,11 +47,10 @@ Public Class permit
             End Using
         End Using
 
-        If result Is Nothing OrElse IsDBNull(result) Then
+        If result Is Nothing OrElse Convert.IsDBNull(result) Then
             Response.StatusCode = HttpStatusCode.NotFound
             Return
         End If
-
 
         Response.Clear()
         Response.ClearHeaders()

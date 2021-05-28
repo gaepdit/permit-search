@@ -304,7 +304,7 @@
         <div style="border: none; vertical-align: top" id="container">
             <div id="header" style="position: relative; z-index: 10">
                 <div style="width: 100%; padding-top: 10px; position: relative;">
-                    <div id="" style="padding-left: 20px; float: left; height: 120px;">
+                    <div style="padding-left: 20px; float: left; height: 120px;">
                         <asp:Image ID="logo" runat="server" BorderStyle="None" ImageUrl="~/images/EPDLogo_FINAL.png" Width="94px" />
                     </div>
                     <div style="padding: 15px 10px; color: #203119; line-height: 2;">
