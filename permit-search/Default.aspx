@@ -3,11 +3,13 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
     <script type="text/javascript">
-        function OnClientEntryAdded(sender, args) {
-            sender.get_inputElement().disabled = true;
-        }
-        function OnClientEntryRemoved(sender, args) {
-            sender.get_inputElement().disabled = false;
+        function OnClientEntryAdding(sender, args) {
+            if (sender.get_entries().get_count() > 0) {
+                var entries = sender.get_entries();
+                entries.clear();
+                entries.add(args.get_entry());
+                args.set_cancel(true);
+            }
         }
     </script>
 </asp:Content>
@@ -23,41 +25,43 @@
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" />
 
     <div class="maincontent" style="width: 97%; margin-bottom: 15px; height: 100%">
-            <asp:Panel ID="pnlSearch" runat="server">
-                <div class="div1" style="text-align: center; color: white; background-color: #203119; padding: 16px 0; line-height: 1.4;">
-                    <h2>Georgia Air Protection Branch<br />
-                        Permit Search Engine</h2>
-                </div>
-                <hr />
-                <br />
-                <table style="width: 97%;">
-                    <tr>
-                        <td>AIRS Number:
-                            <telerik:RadAutoCompleteBox ID="txtAirsNo" runat="server" RenderMode="Lightweight"
-                                Width="200px" DropDownWidth="200px" DropDownHeight="250px"
-                                DataSourceID="SqlDataSource1" DataTextField="AIRS" EmptyMessage="Select an AIRS Number" Filter="StartsWith"
-                                OnClientEntryAdded="OnClientEntryAdded" OnClientEntryRemoved="OnClientEntryRemoved" 
-                                MinFilterLength="3" MaxResultCount="30" />
-                        </td>
-                        <td>Facility Name:
-                            <telerik:RadAutoCompleteBox ID="txtFacility" runat="server" RenderMode="Lightweight"
-                                Width="320px" DropDownWidth="350px" DropDownHeight="300px"
-                                DataSourceID="SqlDataSource2" DataTextField="FACILITY" EmptyMessage="Select a Facility"
-                                OnClientEntryAdded="OnClientEntryAdded" OnClientEntryRemoved="OnClientEntryRemoved" 
-                                MinFilterLength="2" MaxResultCount="30" AllowCustomEntry="True" />
-                        </td>
+        <asp:Panel ID="pnlSearch" runat="server">
+            <div class="div1" style="text-align: center; color: white; background-color: #203119; padding: 16px 0; line-height: 1.4; margin-bottom: 20px">
+                <h2>Georgia Air Protection Branch<br />
+                    Permit Search Engine</h2>
+            </div>
+            <table style="width: 97%;">
+                <tr>
+                    <td>AIRS Number:
+                        <telerik:RadAutoCompleteBox ID="txtAirsNo" runat="server" RenderMode="Lightweight"
+                            Width="200px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="3" MaxResultCount="30"
+                            DataSourceID="SqlDataSource1" DataTextField="AIRS" EmptyMessage="Select an AIRS Number"
+                            Filter="StartsWith" OnClientEntryAdding="OnClientEntryAdding">
+                            <DropDownItemTemplate>
+                                <div class="autocomplete-entry">
+                                    <span><%# DataBinder.Eval(Container.DataItem, "AIRS")%></span>
+                                    <span><%# DataBinder.Eval(Container.DataItem, "FACILITY")%></span>
+                                </div>
+                            </DropDownItemTemplate>
+                        </telerik:RadAutoCompleteBox>
+                    </td>
+                    <td>Facility Name:
+                        <telerik:RadAutoCompleteBox ID="txtFacility" runat="server" RenderMode="Lightweight"
+                            Width="320px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="2" MaxResultCount="30"
+                            DataSourceID="SqlDataSource2" DataTextField="FACILITY" EmptyMessage="Select a Facility"
+                            AllowCustomEntry="True" OnClientEntryAdding="OnClientEntryAdding" />
+                    </td>
+                    <td>Permit Number/SIC Code:
+                        <telerik:RadTextBox ID="txtSIC" runat="server" Width="200px" />
+                    </td>
+                </tr>
+            </table>
 
-                        <td>Permit Number/SIC Code:
-                            <telerik:RadTextBox ID="txtSIC" runat="server" Width="200px" />
-                        </td>
-                    </tr>
-                </table>
-
-                <div style="margin: 20px 0;">
-                    <telerik:RadButton runat="server" ID="btnSearch" Text="Search Permits" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
-                    <telerik:RadButton runat="server" ID="btnClear" Text="Clear Search" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
-                </div>
-            </asp:Panel>
+            <div style="margin: 20px 0;">
+                <telerik:RadButton runat="server" ID="btnSearch" Text="Search Permits" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
+                <telerik:RadButton runat="server" ID="btnClear" Text="Clear Search" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
+            </div>
+        </asp:Panel>
 
         <telerik:RadAjaxLoadingPanel ID="LoadingPanel1" runat="Server" Transparency="30"
             EnableSkinTransparency="false" BackColor="#E0E0E0">
@@ -70,7 +74,7 @@
                     <Columns>
                         <telerik:GridBoundColumn DataField="AIRSNumber" HeaderText="AIRS Number" />
                         <telerik:GridBoundColumn DataField="FacilityName" HeaderText="Facility Name" />
-                        <telerik:GridTemplateColumn HeaderText="Permit" SortExpression="PermitNumber" >
+                        <telerik:GridTemplateColumn HeaderText="Permit" SortExpression="PermitNumber">
                             <ItemTemplate>
                                 <asp:HyperLink ID="hlFinalPermit" runat="server" Target="_blank" />
                             </ItemTemplate>

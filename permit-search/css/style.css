@@ -75,3 +75,22 @@ a:hover {
 .RadGrid_Bootstrap .rgGroupHeader {
     height: auto !important;
 }
+
+/* Autocomplete entries */
+.autocomplete-entry {
+    display: flex;
+    flex-direction: row;
+}
+
+    .autocomplete-entry span:first-child {
+        padding-right: 5px;
+        margin-right: 5px;
+        border-right: 1px solid #999;
+    }
+
+    .autocomplete-entry span:last-child {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-grow: 2;
+    }
