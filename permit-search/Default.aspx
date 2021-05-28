@@ -1,9 +1,6 @@
 ﻿<%@ Page Language="VB" MasterPageFile="~/Main.Master" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="permitsearch.gaepd.org._Default" %>
 
-<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
     <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
     <script type="text/javascript">
         function OnClientEntryAdded(sender, args) {

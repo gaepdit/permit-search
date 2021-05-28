@@ -5,9 +5,9 @@ Imports System.Net
 Public Class permit
     Inherits Page
 
-    Public ReadOnly Property RaygunApiKey = CType(ConfigurationManager.GetSection("RaygunSettings"), Mindscape.Raygun4Net.RaygunSettings).ApiKey
+    Protected ReadOnly Property RaygunApiKey = CType(ConfigurationManager.GetSection("RaygunSettings"), Mindscape.Raygun4Net.RaygunSettings).ApiKey
 
-    Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
+    Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim file As String = Request.QueryString("id")
         If String.IsNullOrEmpty(file) Then
             Response.StatusCode = HttpStatusCode.BadRequest
@@ -28,9 +28,9 @@ Public Class permit
 
         Dim query As String
         If ext = "PDF" Then
-            query = "SELECT pdfpermitdata FROM apbpermits WHERE strFILENAME = @filename "
+            query = "SELECT pdfpermitdata FROM dbo.apbpermits WHERE strFILENAME = @filename "
         Else
-            query = "SELECT docpermitdata FROM apbpermits WHERE strFILENAME = @filename "
+            query = "SELECT docpermitdata FROM dbo.apbpermits WHERE strFILENAME = @filename "
         End If
 
         Dim connectionString As String = ConfigurationManager.ConnectionStrings("SqlConnectionString").ConnectionString

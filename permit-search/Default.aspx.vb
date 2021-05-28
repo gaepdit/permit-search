@@ -3,7 +3,7 @@
 Public Class _Default
     Inherits Page
 
-    Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack AndAlso Request.QueryString("AirsNumber") <> "" Then
             Dim airsNumber As String = Request.QueryString("AirsNumber")
 
@@ -15,24 +15,24 @@ Public Class _Default
         End If
     End Sub
 
-    Protected Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         gvwPermits.Visible = True
         gvwPermits.CurrentPageIndex = 0
         gvwPermits.Rebind()
     End Sub
 
-    Protected Sub gvwPermits_ItemDataBound(sender As Object, e As GridItemEventArgs) Handles gvwPermits.ItemDataBound
+    Private Sub gvwPermits_ItemDataBound(sender As Object, e As GridItemEventArgs) Handles gvwPermits.ItemDataBound
         If Not (TypeOf e.Item Is GridDataItem) Then
             Return
         End If
 
-        Dim item As GridDataItem = DirectCast(e.Item, GridDataItem)
+        Dim item = DirectCast(e.Item, GridDataItem)
         Dim fileType As String = item("FileType").Text
         Dim permit As String
         Dim narrative As String
-        Dim preDeterm As String = ""
-        Dim finDeterm As String = ""
-        Dim appSumm As String = ""
+        Dim preDeterm = ""
+        Dim finDeterm = ""
+        Dim appSumm = ""
 
         If fileType = "SIP" Then
             permit = item.GetDataKeyValue("OtherPermit").ToString
@@ -48,11 +48,11 @@ Public Class _Default
             appSumm = item.GetDataKeyValue("PSDAppSum").ToString
         End If
 
-        Dim hlFinalPermit As HyperLink = DirectCast(item.FindControl("hlFinalPermit"), HyperLink)
+        Dim hlFinalPermit = DirectCast(item.FindControl("hlFinalPermit"), HyperLink)
         hlFinalPermit.Text = item.GetDataKeyValue("PermitNumber")
         hlFinalPermit.NavigateUrl = String.Concat("~/permit.aspx?id=", permit)
 
-        Dim link As HyperLink = DirectCast(item.FindControl("hlNarrative"), HyperLink)
+        Dim link = DirectCast(item.FindControl("hlNarrative"), HyperLink)
         If Not String.IsNullOrEmpty(narrative) Then
             link.NavigateUrl = String.Concat("~/permit.aspx?id=", narrative)
         Else
@@ -95,8 +95,8 @@ Public Class _Default
     Private Sub gvwPermits_NeedDataSource(sender As Object, e As GridNeedDataSourceEventArgs) Handles gvwPermits.NeedDataSource
         Dim sortExpressions = gvwPermits.MasterTableView.SortExpressions
 
-        Dim sortColumn As String = ""
-        Dim sortDirection As String = ""
+        Dim sortColumn = ""
+        Dim sortDirection = ""
 
         If sortExpressions.Count = 1 Then
             sortColumn = sortExpressions(0).FieldName
