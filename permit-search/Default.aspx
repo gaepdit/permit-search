@@ -82,10 +82,12 @@
                         <telerik:GridBoundColumn DataField="IssuanceDate" HeaderText="Issuance Date" DataFormatString="{0:d-MMM-yyyy}" />
                         <telerik:GridTemplateColumn HeaderText="Other Documents">
                             <ItemTemplate>
-                                <asp:HyperLink ID="hlNarrative" runat="server" CssClass="db" Target="_blank" Text="Narrative" />
-                                <asp:HyperLink ID="hlPreDeterm" runat="server" CssClass="db" Target="_blank" Text="Preliminary Determination" />
-                                <asp:HyperLink ID="hlFinDeterm" runat="server" CssClass="db" Target="_blank" Text="Final Determination" />
-                                <asp:HyperLink ID="hlAppSumm" runat="server" CssClass="db" Target="_blank" Text="Application Summary" />
+                                <div id="divDocs" runat="server">
+                                    <asp:HyperLink ID="hlNarrative" runat="server" Target="_blank" Text="Narrative" />
+                                    <asp:HyperLink ID="hlPreDeterm" runat="server" Target="_blank" Text="Preliminary Determination" />
+                                    <asp:HyperLink ID="hlFinDeterm" runat="server" Target="_blank" Text="Final Determination" />
+                                    <asp:HyperLink ID="hlAppSumm" runat="server" Target="_blank" Text="Application Summary" />
+                                </div>
                             </ItemTemplate>
                         </telerik:GridTemplateColumn>
                         <telerik:GridBoundColumn DataField="fileType" HeaderText="Permit Type" AllowSorting="false" />

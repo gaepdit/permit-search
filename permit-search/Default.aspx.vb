@@ -1,4 +1,5 @@
-﻿Imports Telerik.Web.UI
+﻿Imports System.Web.UI.HtmlControls
+Imports Telerik.Web.UI
 
 Public Class _Default
     Inherits Page
@@ -41,6 +42,8 @@ Public Class _Default
             permit = item.GetDataKeyValue("VFinal").ToString
             narrative = item.GetDataKeyValue("VNarrative").ToString
         Else
+            Dim list = DirectCast(item.FindControl("divDocs"), HtmlGenericControl)
+            list.Attributes.Add("class", "ul")
             permit = item.GetDataKeyValue("PSDFinal").ToString
             narrative = item.GetDataKeyValue("PSDNarrative").ToString
             preDeterm = item.GetDataKeyValue("PSDPrelim").ToString
