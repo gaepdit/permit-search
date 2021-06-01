@@ -41,6 +41,24 @@ Partial Public Class _Default
     Protected WithEvents RadAjaxManager1 As Global.Telerik.Web.UI.RadAjaxManager
 
     '''<summary>
+    '''LoadingPanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents LoadingPanel1 As Global.Telerik.Web.UI.RadAjaxLoadingPanel
+
+    '''<summary>
+    '''AjaxPanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AjaxPanel1 As Global.Telerik.Web.UI.RadAjaxPanel
+
+    '''<summary>
     '''pnlSearch control.
     '''</summary>
     '''<remarks>
@@ -93,24 +111,6 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnClear As Global.Telerik.Web.UI.RadButton
-
-    '''<summary>
-    '''LoadingPanel1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents LoadingPanel1 As Global.Telerik.Web.UI.RadAjaxLoadingPanel
-
-    '''<summary>
-    '''AjaxPanel1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents AjaxPanel1 As Global.Telerik.Web.UI.RadAjaxPanel
 
     '''<summary>
     '''gvwPermits control.

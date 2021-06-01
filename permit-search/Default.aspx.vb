@@ -10,16 +10,19 @@ Public Class _Default
 
             If ApbFacilityId.IsValidAirsNumberFormat(airsNumber) Then
                 txtAirsNo.Entries.Insert(0, New AutoCompleteBoxEntry(New ApbFacilityId(airsNumber).FormattedString))
-                gvwPermits.Visible = True
-                gvwPermits.Rebind()
+                SearchPermits()
             End If
         End If
     End Sub
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+    Private Sub SearchPermits()
         gvwPermits.Visible = True
         gvwPermits.CurrentPageIndex = 0
         gvwPermits.Rebind()
+    End Sub
+
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        SearchPermits()
     End Sub
 
     Private Sub gvwPermits_ItemDataBound(sender As Object, e As GridItemEventArgs) Handles gvwPermits.ItemDataBound
@@ -84,11 +87,23 @@ Public Class _Default
         End If
     End Sub
 
+    Private Sub EntryAdded(sender As Object, e As AutoCompleteEntryEventArgs) Handles txtFacility.EntryAdded, txtAirsNo.EntryAdded
+        SearchPermits()
+    End Sub
+
+    Private Sub EntryRemoved(sender As Object, e As AutoCompleteEntryEventArgs) Handles txtFacility.EntryRemoved, txtAirsNo.EntryRemoved
+        ClearSearch()
+    End Sub
+
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtAirsNo.Entries.Clear()
         txtFacility.Entries.Clear()
         txtSIC.Text = ""
 
+        ClearSearch()
+    End Sub
+
+    Private Sub ClearSearch()
         gvwPermits.CurrentPageIndex = 0
         gvwPermits.DataSource = Nothing
         gvwPermits.DataBind()
@@ -111,4 +126,5 @@ Public Class _Default
                                            sortColumn, sortDirection)
         gvwPermits.VirtualItemCount = GetPermitsCount(txtAirsNo.Text, txtFacility.Text, txtSIC.Text)
     End Sub
+
 End Class

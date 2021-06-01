@@ -25,14 +25,17 @@
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" />
 
     <div class="maincontent" style="width: 97%; margin-bottom: 15px; height: 100%">
-        <asp:Panel ID="pnlSearch" runat="server">
-            <div class="div1" style="text-align: center; color: white; background-color: #203119; padding: 16px 0; line-height: 1.4; margin-bottom: 20px">
-                <h2>Georgia Air Protection Branch<br />
-                    Permit Search Engine</h2>
-            </div>
-            <table style="width: 97%;">
-                <tr>
-                    <td>AIRS Number:
+        <div class="div1" style="text-align: center; color: white; background-color: #203119; padding: 16px 0; line-height: 1.4; margin-bottom: 20px">
+            <h2>Georgia Air Protection Branch<br />
+                Permit Search Engine</h2>
+        </div>
+
+        <telerik:RadAjaxLoadingPanel ID="LoadingPanel1" runat="Server" Transparency="30" EnableSkinTransparency="false" BackColor="#E0E0E0" />
+        <telerik:RadAjaxPanel ID="AjaxPanel1" runat="server" LoadingPanelID="LoadingPanel1">
+            <asp:Panel ID="pnlSearch" runat="server">
+                <table style="width: 97%;">
+                    <tr>
+                        <td>AIRS Number:
                         <telerik:RadAutoCompleteBox ID="txtAirsNo" runat="server" RenderMode="Lightweight"
                             Width="200px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="3" MaxResultCount="30"
                             DataSourceID="SqlDataSource1" DataTextField="AIRS" EmptyMessage="Select an AIRS Number"
@@ -44,29 +47,25 @@
                                 </div>
                             </DropDownItemTemplate>
                         </telerik:RadAutoCompleteBox>
-                    </td>
-                    <td>Facility Name:
+                        </td>
+                        <td>Facility Name:
                         <telerik:RadAutoCompleteBox ID="txtFacility" runat="server" RenderMode="Lightweight"
                             Width="320px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="2" MaxResultCount="30"
                             DataSourceID="SqlDataSource2" DataTextField="FACILITY" EmptyMessage="Select a Facility"
-                            AllowCustomEntry="True" OnClientEntryAdding="OnClientEntryAdding" />
-                    </td>
-                    <td>Permit Number/SIC Code:
+                            AllowCustomEntry="True" HighlightFirstMatch="False" OnClientEntryAdding="OnClientEntryAdding" />
+                        </td>
+                        <td>Permit Number/SIC Code:
                         <telerik:RadTextBox ID="txtSIC" runat="server" Width="200px" />
-                    </td>
-                </tr>
-            </table>
+                        </td>
+                    </tr>
+                </table>
 
-            <div style="margin: 20px 0;">
-                <telerik:RadButton runat="server" ID="btnSearch" Text="Search Permits" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
-                <telerik:RadButton runat="server" ID="btnClear" Text="Clear Search" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
-            </div>
-        </asp:Panel>
+                <div style="margin: 20px 0;">
+                    <telerik:RadButton runat="server" ID="btnSearch" Text="Search Permits" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
+                    <telerik:RadButton runat="server" ID="btnClear" Text="Clear Search" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
+                </div>
+            </asp:Panel>
 
-        <telerik:RadAjaxLoadingPanel ID="LoadingPanel1" runat="Server" Transparency="30"
-            EnableSkinTransparency="false" BackColor="#E0E0E0">
-        </telerik:RadAjaxLoadingPanel>
-        <telerik:RadAjaxPanel ID="AjaxPanel1" runat="server" LoadingPanelID="LoadingPanel1">
             <telerik:RadGrid ID="gvwPermits" runat="server"
                 AllowCustomPaging="True" AllowPaging="true" AllowSorting="true" AutoGenerateColumns="False"
                 PagerStyle-PageSizeControlType="None" PagerStyle-Position="TopAndBottom" PageSize="20" Visible="False">
