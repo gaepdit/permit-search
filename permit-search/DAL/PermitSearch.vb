@@ -27,8 +27,8 @@ Module PermitSearch
             " offset @skip rows fetch Next @take rows only"
 
         Dim parameterArray As SqlParameter() = {
-            New SqlParameter("@airs", airs.Trim({" "c, ";"c})),
-            New SqlParameter("@name", name.Trim({" "c, ";"c})),
+            New SqlParameter("@airs", airs),
+            New SqlParameter("@name", name),
             New SqlParameter("@permit", permit),
             New SqlParameter("@skip", currentPageIndex * pageSize),
             New SqlParameter("@take", pageSize)
@@ -64,8 +64,8 @@ Module PermitSearch
               and PermitNumber like concat('%', @permit, '%')"
 
         Dim parameterArray As SqlParameter() = {
-            New SqlParameter("@airs", airs.Trim({" "c, ";"c})),
-            New SqlParameter("@name", name.Trim({" "c, ";"c})),
+            New SqlParameter("@airs", airs),
+            New SqlParameter("@name", name),
             New SqlParameter("@permit", permit)
         }
 

@@ -1,4 +1,4 @@
-﻿Imports System.Web.UI.HtmlControls
+Imports System.Web.UI.HtmlControls
 Imports Telerik.Web.UI
 
 Public Class _Default
@@ -121,10 +121,19 @@ Public Class _Default
             sortDirection = sortExpressions(0).SortOrderAsString
         End If
 
+        Dim airs As String = ""
+        If txtAirsNo.Entries.Count = 1 Then
+            airs = txtAirsNo.Entries.Item(0).Text
+        End If
+
+        Dim fac As String = ""
+        If txtFacility.Entries.Count = 1 Then
+            fac = txtFacility.Entries(0).Text
+        End If
+
         gvwPermits.DataSource = GetPermits(gvwPermits.CurrentPageIndex, gvwPermits.PageSize,
-                                           txtAirsNo.Text, txtFacility.Text, txtSIC.Text,
-                                           sortColumn, sortDirection)
-        gvwPermits.VirtualItemCount = GetPermitsCount(txtAirsNo.Text, txtFacility.Text, txtSIC.Text)
+                                           airs, fac, txtSIC.Text, sortColumn, sortDirection)
+        gvwPermits.VirtualItemCount = GetPermitsCount(airs, fac, txtSIC.Text)
     End Sub
 
 End Class
