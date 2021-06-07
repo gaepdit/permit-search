@@ -147,7 +147,6 @@
     </None>
     <None Include="My Project\PublishProfiles\Publish-Develop.pubxml" />
     <None Include="My Project\PublishProfiles\Publish-Production.pubxml" />
-    <None Include="My Project\PublishProfiles\FolderProfile-Prod.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -163,9 +162,6 @@
     <Content Include="web.configBuilder.xml" />
     <None Include="packages.config" />
     <None Include="web.configBuilder.Debug.xml">
-      <DependentUpon>web.configBuilder.xml</DependentUpon>
-    </None>
-    <None Include="web.configBuilder.Staging.xml">
       <DependentUpon>web.configBuilder.xml</DependentUpon>
     </None>
     <None Include="web.configBuilder.Release.xml">
@@ -229,7 +225,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
