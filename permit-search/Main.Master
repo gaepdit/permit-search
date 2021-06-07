@@ -74,6 +74,7 @@
         rg4js('enableCrashReporting', true);
         rg4js('enablePulse', true);
         rg4js('options', { ignore3rdPartyErrors: true });
+        rg4js('logContentsOfXhrCalls', true);
     </script>
 </body>
 </html>
