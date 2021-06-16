@@ -71,7 +71,7 @@
                 PagerStyle-PageSizeControlType="None" PagerStyle-Position="TopAndBottom" PageSize="20" Visible="False">
                 <MasterTableView DataKeyNames="PermitNumber,VNarrative,VFinal,PSDNarrative,PSDFinal,OtherNarrative,OtherPermit,PSDPrelim,PSDFinalDet,PSDAppSum">
                     <Columns>
-                        <telerik:GridBoundColumn DataField="AIRSNumber" HeaderText="AIRS Number" />
+                        <telerik:GridBoundColumn DataField="AIRS" HeaderText="AIRS Number" />
                         <telerik:GridBoundColumn DataField="FacilityName" HeaderText="Facility Name" />
                         <telerik:GridTemplateColumn HeaderText="Permit" SortExpression="PermitNumber">
                             <ItemTemplate>
@@ -97,7 +97,7 @@
         </telerik:RadAjaxPanel>
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ProviderName="System.Data.SqlClient" ConnectionString="<%$ ConnectionStrings:SqlConnectionString %>"
-        SelectCommand="select concat(substring(STRAIRSNUMBER, 5, 3), '-', right(STRAIRSNUMBER, 5)) as AIRS, STRFACILITYNAME as FACILITY from dbo.APBFACILITYINFORMATION order by 1" />
+        SelectCommand="select right(STRAIRSNUMBER, 8) as AIRS, STRFACILITYNAME as FACILITY from dbo.APBFACILITYINFORMATION order by 1" />
     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ProviderName="System.Data.SqlClient" ConnectionString="<%$ ConnectionStrings:SqlConnectionString %>"
         SelectCommand="select concat(substring(STRAIRSNUMBER, 5, 3), '-', right(STRAIRSNUMBER, 5)) as AIRS, STRFACILITYNAME as FACILITY from dbo.APBFACILITYINFORMATION order by 2" />
 </asp:Content>

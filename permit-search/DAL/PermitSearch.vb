@@ -14,7 +14,7 @@ Module PermitSearch
         If Not sortDirections.Contains(sortDirection) Then sortDirection = "ASC"
 
         Dim query As String =
-            "select ApplicationNumber, AIRSNumber, FacilityName, PermitNumber, 
+            "select ApplicationNumber, AIRS, FacilityName, PermitNumber, 
                IssuanceDate, FileType, VNarrative, VFinal, PSDAppSum,PSDPrelim,
                PSDNarrative, PSDFinalDet, PSDFinal, OtherNarrative, OtherPermit
             from dbo.VW_GA_PERMITS
