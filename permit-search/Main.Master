@@ -1,4 +1,4 @@
-﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.Master.vb" Inherits="permitsearch.gaepd.org.Main" %>
+<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.Master.vb" Inherits="permitsearch.gaepd.org.Main" %>
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#e5f6fa" />
     <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-topper.css" />
     <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-footer.css" />
-    <link rel="stylesheet" href="css/style.css?v=20210528" type="text/css" />
+    <link rel="stylesheet" href="css/style.css?v=20210914" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server" />
     <script type="text/javascript">
         !function (a, b, c, d, e, f, g, h) {
@@ -30,6 +30,9 @@
 </head>
 
 <body style="background: #f5f5f6 url(images/header-bg.png) repeat-x top left;">
+    <% If CurrentEnvironment <> "Production" Then %>
+    <div class="banner-test-site">Test Site</div>
+    <% End If %>
     <script type="text/javascript" src="https://georgia.gov/gagov_external_blocks/topper"></script>
 
     <form id="form1" class="form" runat="server">
