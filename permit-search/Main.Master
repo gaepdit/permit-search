@@ -1,4 +1,4 @@
-<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.Master.vb" Inherits="permitsearch.gaepd.org.Main" %>
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.Master.vb" Inherits="permitsearch.gaepd.org.Main" %>
 
 <!DOCTYPE html>
 <html lang="en-us">
@@ -56,15 +56,13 @@
         <div id="footer" style="background-color: #948d84; border-top: 3px solid #505354; height: 200px; margin-top: inherit; position: relative; bottom: 0; width: 100%">
             <div style="font-family: Verdana, sans-serif; font-size: 11px; line-height: 16px; margin-top: 10px; color: white; text-align: center;">
                 <p>
-                    <a href="https://epd.georgia.gov/air/" style="color: white">Air Protection Branch</a> |
-                    <a style="color: white" href="https://epd.georgia.gov/">Environmental Protection Division</a>
+                    <a href="https://epd.georgia.gov/air-protection-branch" style="color: white">Air Protection Branch</a> |
+                    <a style="color: white" href="https://epd.georgia.gov/">Environmental Protection Division</a> |
+                    <a style="color: white" href="https://gadnr.org/">Georgia Department of Natural Resources</a>
                 </p>
                 <p>
-                    <a style="color: white" href="https://gadnr.org/">Georgia Department of Natural Resources</a> |
-                    <a style="color: white" href="https://gadnr.org/ada">DNR Accessibility Notice </a>
-                </p>
-                <p>
-                    <a style="color: white" href="https://georgia.gov/accessibility">Accessibility</a>  |
+                    <a style="color: white" href="https://gadnr.org/ada">DNR Accessibility Notice </a>|
+                    <a style="color: white" href="https://georgia.gov/accessibility">Accessibility</a> |
                     <a style="color: white" href="https://georgia.gov/privacysecurity">Privacy/Security</a>
                 </p>
             </div>
