@@ -27,8 +27,8 @@
     </telerik:RadScriptManager>
     <telerik:RadAjaxManager ID="RadAjaxManager1" runat="server" />
 
-    <div class="maincontent" style="width: 97%; margin-bottom: 15px; height: 100%">
-        <div class="div1" style="text-align: center; color: white; background-color: #203119; padding: 16px 0; line-height: 1.4; margin-bottom: 20px">
+    <div class="maincontent">
+        <div class="form-banner">
             <h2>Georgia Air Protection Branch<br />
                 Permit Search Engine</h2>
         </div>
@@ -36,7 +36,7 @@
         <telerik:RadAjaxLoadingPanel ID="LoadingPanel1" runat="Server" Transparency="30" EnableSkinTransparency="false" BackColor="#E0E0E0" />
         <telerik:RadAjaxPanel ID="AjaxPanel1" runat="server" LoadingPanelID="LoadingPanel1">
             <asp:Panel ID="pnlSearch" runat="server">
-                <table style="width: 97%;">
+                <table>
                     <tr>
                         <td>AIRS Number:
                         <telerik:RadAutoCompleteBox ID="txtAirsNo" runat="server" RenderMode="Lightweight"
@@ -63,7 +63,7 @@
                     </tr>
                 </table>
 
-                <div style="margin: 20px 0;">
+                <div class="button-row">
                     <telerik:RadButton runat="server" ID="btnSearch" Text="Search Permits" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
                     <telerik:RadButton runat="server" ID="btnClear" Text="Clear Search" BorderStyle="Solid" ForeColor="#925001" Font-Bold="true" />
                 </div>

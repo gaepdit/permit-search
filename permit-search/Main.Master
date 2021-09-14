@@ -13,7 +13,7 @@
     <meta name="theme-color" content="#e5f6fa" />
     <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-topper.css" />
     <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-footer.css" />
-    <link rel="stylesheet" href="css/style.css?v=20210914" type="text/css" />
+    <link rel="stylesheet" href="css/style.css?v=20210914a" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server" />
     <script type="text/javascript">
         !function (a, b, c, d, e, f, g, h) {
@@ -29,52 +29,45 @@
     </script>
 </head>
 
-<body style="background: #f5f5f6 url(images/header-bg.png) repeat-x top left;">
+<body>
     <% If CurrentEnvironment <> "Production" Then %>
     <div class="banner-test-site">Test Site</div>
     <% End If %>
-    <script type="text/javascript" src="https://georgia.gov/gagov_external_blocks/topper"></script>
+    <div class="bg-wrap">
+        <script type="text/javascript" src="https://georgia.gov/gagov_external_blocks/topper"></script>
 
-    <form id="form1" class="form" runat="server">
-        <div style="border: none; vertical-align: top" id="container">
-            <div id="header" style="position: relative; z-index: 10">
-                <div style="width: 100%; padding-top: 10px; position: relative;">
-                    <div style="padding-left: 20px; float: left; height: 120px;">
-                        <asp:Image ID="logo" runat="server" BorderStyle="None" ImageUrl="~/images/logo.png" Width="94px" />
-                    </div>
-                    <div style="padding: 15px 10px; color: #203119; line-height: 2;">
-                        <h1>Environmental Protection Division</h1>
-                    </div>
+        <form id="form1" class="form" runat="server">
+            <div id="container">
+                <div id="header">
+                    <img id="logo" src='<%= Page.ResolveUrl("~/Images/logo.png") %>' height="101" width="94" alt="Georgia EPD" />
+                    <h1>Environmental Protection Division</h1>
                 </div>
+
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" />
+
+                <p style="text-align: center; line-height: 16px; margin-bottom: 10px;"><a href="https://gatv.gaepd.org" style="color: #92501a">Title V Applications Archive</a></p>
             </div>
 
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" />
-
-            <p style="text-align: center; line-height: 16px; margin-bottom: 10px;"><a href="https://gatv.gaepd.org" style="color: #92501a">Title V Applications Archive</a></p>
-        </div>
-
-        <div id="footer" style="background-color: #948d84; border-top: 3px solid #505354; height: 200px; margin-top: inherit; position: relative; bottom: 0; width: 100%">
-            <div style="font-family: Verdana, sans-serif; font-size: 11px; line-height: 16px; margin-top: 10px; color: white; text-align: center;">
-                <p>
-                    <a href="https://epd.georgia.gov/air-protection-branch" style="color: white">Air Protection Branch</a> |
-                    <a style="color: white" href="https://epd.georgia.gov/">Environmental Protection Division</a> |
-                    <a style="color: white" href="https://gadnr.org/">Georgia Department of Natural Resources</a>
-                </p>
-                <p>
-                    <a style="color: white" href="https://gadnr.org/ada">DNR Accessibility Notice </a>|
-                    <a style="color: white" href="https://georgia.gov/accessibility">Accessibility</a> |
-                    <a style="color: white" href="https://georgia.gov/privacysecurity">Privacy/Security</a>
-                </p>
+            <div class="gaepd-footer">
+                <div style="font-size: 11px; line-height: 16px; margin-top: 10px; text-align: center;">
+                    <a href="https://epd.georgia.gov/air-protection-branch">Air Protection Branch</a> |
+                    <a href="https://epd.georgia.gov/">Environmental Protection Division</a> |
+                    <a href="https://gadnr.org/">Georgia Department of Natural Resources</a>
+                    <br />
+                    <a href="https://gadnr.org/ada">DNR Accessibility Notice </a>|
+                    <a href="https://georgia.gov/accessibility">Accessibility</a> |
+                    <a href="https://georgia.gov/privacysecurity">Privacy/Security</a>
+                </div>
+                <script type="text/javascript" src="https://georgia.gov/gagov_external_blocks/footer"></script>
             </div>
-            <script type="text/javascript" src="https://georgia.gov/gagov_external_blocks/footer"></script>
-        </div>
-    </form>
-    <script type="text/javascript">
-        rg4js('apiKey', '<%= RaygunApiKey %>');
-        rg4js('enableCrashReporting', true);
-        rg4js('enablePulse', true);
-        rg4js('options', { ignore3rdPartyErrors: true });
-        rg4js('logContentsOfXhrCalls', true);
-    </script>
+        </form>
+        <script type="text/javascript">
+            rg4js('apiKey', '<%= RaygunApiKey %>');
+            rg4js('enableCrashReporting', true);
+            rg4js('enablePulse', true);
+            rg4js('options', { ignore3rdPartyErrors: true });
+            rg4js('logContentsOfXhrCalls', true);
+        </script>
+    </div>
 </body>
 </html>

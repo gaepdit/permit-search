@@ -8,30 +8,45 @@ html {
     font-family: Verdana, sans-serif;
 }
 
-header {
-    width: 100%;
-    position: relative;
+body {
+    background: #5d5751;
 }
 
-div#header {
+.bg-wrap {
+    background: #f5f5f6 url(/images/header-bg.png) repeat-x top left;
+}
+
+#header {
     clear: both;
     height: 120px;
+    padding-top: 10px;
+}
+
+#logo {
+    padding-left: 20px;
+    float: left;
+}
+
+h1 {
+    padding: 15px 10px;
+    color: #203119;
+    line-height: 2;
 }
 
 #container {
     max-width: 960px;
     margin: 0px auto;
     color: #333;
-    border: 1px solid gray;
     line-height: 100%;
     font-size: small;
+    border: none;
 }
 
 a img {
     border: none;
 }
 
-a:hover {
+a:hover, a:focus {
     text-decoration: none;
 }
 
@@ -41,12 +56,28 @@ a:hover {
     line-height: 1.714em;
     margin: 0;
     padding: 20px;
+    width: 97%;
+    margin-bottom: 15px;
+    height: 100%;
 }
 
     .maincontent p {
         margin-bottom: 15px;
         margin-top: 5px;
     }
+
+.form-banner {
+    text-align: center;
+    color: white;
+    background-color: #203119;
+    padding: 16px 0;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.button-row {
+    margin: 20px 0;
+}
 
 /* Utility classes */
 div.ul a {
@@ -94,6 +125,30 @@ div.ul a {
         text-overflow: ellipsis;
         flex-grow: 2;
     }
+
+/* GeorgiaGov Interactive Shared Elements */
+.gaepd-footer {
+    color: #fff;
+    border-top: 3px solid HSL(195, 2%, 32%);
+    background: #5d5751;
+    font-family: Verdana, sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+    .gaepd-footer a {
+        color: white;
+    }
+
+        .gaepd-footer a:hover,
+        .gaepd-footer a:focus {
+            text-decoration: none;
+        }
+
+#gagov_external_blocks-footer #zone-footer-wrapper {
+    min-height: 200px;
+    background: #5d5751 !important;
+}
 
 /* Test site banner */
 .banner-test-site {
