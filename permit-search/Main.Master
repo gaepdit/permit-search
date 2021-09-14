@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#e5f6fa" />
     <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-topper.css" />
     <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-footer.css" />
-    <link rel="stylesheet" href="css/style.css?v=20210914a" type="text/css" />
+    <link rel="stylesheet" href="css/style.css?v=20210914b" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server" />
     <script type="text/javascript">
         !function (a, b, c, d, e, f, g, h) {

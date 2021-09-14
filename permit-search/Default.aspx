@@ -87,12 +87,20 @@
                         <telerik:GridBoundColumn DataField="IssuanceDate" HeaderText="Issuance Date" DataFormatString="{0:d-MMM-yyyy}" />
                         <telerik:GridTemplateColumn HeaderText="Other Documents">
                             <ItemTemplate>
-                                <div id="divDocs" runat="server">
-                                    <asp:HyperLink ID="hlNarrative" runat="server" Target="_blank" Text="Narrative" />
-                                    <asp:HyperLink ID="hlPreDeterm" runat="server" Target="_blank" Text="Preliminary Determination" />
-                                    <asp:HyperLink ID="hlFinDeterm" runat="server" Target="_blank" Text="Final Determination" />
-                                    <asp:HyperLink ID="hlAppSumm" runat="server" Target="_blank" Text="Application Summary" />
-                                </div>
+                                <ul id="listDocs" runat="server">
+                                    <li id="liNarrative" runat="server">
+                                        <asp:HyperLink ID="hlNarrative" runat="server" Target="_blank" Text="Narrative" />
+                                    </li>
+                                    <li id="liPreDeterm" runat="server">
+                                        <asp:HyperLink ID="hlPreDeterm" runat="server" Target="_blank" Text="Preliminary Determination" />
+                                    </li>
+                                    <li id="liFinDeterm" runat="server">
+                                        <asp:HyperLink ID="hlFinDeterm" runat="server" Target="_blank" Text="Final Determination" />
+                                    </li>
+                                    <li id="liAppSumm" runat="server">
+                                        <asp:HyperLink ID="hlAppSumm" runat="server" Target="_blank" Text="Application Summary" />
+                                    </li>
+                                </ul>
                             </ItemTemplate>
                         </telerik:GridTemplateColumn>
                         <telerik:GridBoundColumn DataField="fileType" HeaderText="Permit Type" AllowSorting="false" />

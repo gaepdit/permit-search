@@ -79,10 +79,14 @@ a:hover, a:focus {
     margin: 20px 0;
 }
 
-/* Utility classes */
-div.ul a {
-    display: list-item;
+/* doc list */
+ul {
+    margin-left: 5px;
 }
+
+    ul.nul {
+        list-style: none;
+    }
 
 /* RadGrid overrides */
 .rgMasterTable tbody td {

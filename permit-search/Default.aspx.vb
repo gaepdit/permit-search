@@ -41,14 +41,16 @@ Public Class _Default
         Dim appSumm = ""
 
         If fileType = "SIP" Then
+            Dim list = DirectCast(item.FindControl("listDocs"), HtmlGenericControl)
+            list.Attributes.Add("class", "nul")
             permit = item.GetDataKeyValue("OtherPermit").ToString
             narrative = item.GetDataKeyValue("OtherNarrative").ToString
         ElseIf fileType = "Title V" Then
+            Dim list = DirectCast(item.FindControl("listDocs"), HtmlGenericControl)
+            list.Attributes.Add("class", "nul")
             permit = item.GetDataKeyValue("VFinal").ToString
             narrative = item.GetDataKeyValue("VNarrative").ToString
         Else
-            Dim list = DirectCast(item.FindControl("divDocs"), HtmlGenericControl)
-            list.Attributes.Add("class", "ul")
             permit = item.GetDataKeyValue("PSDFinal").ToString
             narrative = item.GetDataKeyValue("PSDNarrative").ToString
             preDeterm = item.GetDataKeyValue("PSDPrelim").ToString
@@ -60,32 +62,36 @@ Public Class _Default
         hlFinalPermit.Text = item.GetDataKeyValue("PermitNumber")
         hlFinalPermit.NavigateUrl = String.Concat("~/permit.aspx?id=", permit)
 
-        Dim link = DirectCast(item.FindControl("hlNarrative"), HyperLink)
         If Not String.IsNullOrEmpty(narrative) Then
+            Dim link = DirectCast(item.FindControl("hlNarrative"), HyperLink)
             link.NavigateUrl = String.Concat("~/permit.aspx?id=", narrative)
         Else
-            link.Visible = False
+            Dim listItem = item.FindControl("liNarrative")
+            listItem.Visible = False
         End If
 
-        link = DirectCast(item.FindControl("hlPreDeterm"), HyperLink)
         If Not String.IsNullOrEmpty(preDeterm) Then
+            Dim link = DirectCast(item.FindControl("hlPreDeterm"), HyperLink)
             link.NavigateUrl = String.Concat("~/permit.aspx?id=", preDeterm)
         Else
-            link.Visible = False
+            Dim listItem = item.FindControl("liPreDeterm")
+            listItem.Visible = False
         End If
 
-        link = DirectCast(item.FindControl("hlFinDeterm"), HyperLink)
         If Not String.IsNullOrEmpty(finDeterm) Then
+            Dim link = DirectCast(item.FindControl("hlFinDeterm"), HyperLink)
             link.NavigateUrl = String.Concat("~/permit.aspx?id=", finDeterm)
         Else
-            link.Visible = False
+            Dim listItem = item.FindControl("liFinDeterm")
+            listItem.Visible = False
         End If
 
-        link = DirectCast(item.FindControl("hlAppSumm"), HyperLink)
         If Not String.IsNullOrEmpty(appSumm) Then
+            Dim link = DirectCast(item.FindControl("hlAppSumm"), HyperLink)
             link.NavigateUrl = String.Concat("~/permit.aspx?id=", appSumm)
         Else
-            link.Visible = False
+            Dim listItem = item.FindControl("liAppSumm")
+            listItem.Visible = False
         End If
     End Sub
 
