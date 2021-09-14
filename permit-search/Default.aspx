@@ -38,27 +38,30 @@
             <asp:Panel ID="pnlSearch" runat="server">
                 <table>
                     <tr>
-                        <td>AIRS Number:
-                        <telerik:RadAutoCompleteBox ID="txtAirsNo" runat="server" RenderMode="Lightweight"
-                            Width="200px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="3" MaxResultCount="30"
-                            DataSourceID="SqlDataSource1" DataTextField="AIRS" EmptyMessage="Select an AIRS Number"
-                            Filter="StartsWith" OnClientEntryAdding="OnClientEntryAdding">
-                            <DropDownItemTemplate>
-                                <div class="autocomplete-entry">
-                                    <span><%# DataBinder.Eval(Container.DataItem, "AIRS")%></span>
-                                    <span><%# DataBinder.Eval(Container.DataItem, "FACILITY")%></span>
-                                </div>
-                            </DropDownItemTemplate>
-                        </telerik:RadAutoCompleteBox>
+                        <td>
+                            <telerik:RadLabel ID="lblAirsNo" runat="server" AssociatedControlID="txtAirsNo">AIRS Number:</telerik:RadLabel>
+                            <telerik:RadAutoCompleteBox ID="txtAirsNo" runat="server" RenderMode="Lightweight"
+                                Width="200px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="3" MaxResultCount="30"
+                                DataSourceID="SqlDataSource1" DataTextField="AIRS" EmptyMessage="Select an AIRS Number"
+                                Filter="StartsWith" OnClientEntryAdding="OnClientEntryAdding">
+                                <DropDownItemTemplate>
+                                    <div class="autocomplete-entry">
+                                        <span><%# DataBinder.Eval(Container.DataItem, "AIRS")%></span>
+                                        <span><%# DataBinder.Eval(Container.DataItem, "FACILITY")%></span>
+                                    </div>
+                                </DropDownItemTemplate>
+                            </telerik:RadAutoCompleteBox>
                         </td>
-                        <td>Facility Name:
-                        <telerik:RadAutoCompleteBox ID="txtFacility" runat="server" RenderMode="Lightweight"
-                            Width="320px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="2" MaxResultCount="30"
-                            DataSourceID="SqlDataSource2" DataTextField="FACILITY" EmptyMessage="Select a Facility"
-                            AllowCustomEntry="True" HighlightFirstMatch="False" OnClientEntryAdding="OnClientEntryAdding" />
+                        <td>
+                            <telerik:RadLabel ID="lblFacility" runat="server" AssociatedControlID="txtFacility">Facility Name:</telerik:RadLabel>
+                            <telerik:RadAutoCompleteBox ID="txtFacility" runat="server" RenderMode="Lightweight"
+                                Width="320px" DropDownWidth="500px" DropDownHeight="300px" MinFilterLength="2" MaxResultCount="30"
+                                DataSourceID="SqlDataSource2" DataTextField="FACILITY" EmptyMessage="Select a Facility"
+                                AllowCustomEntry="True" HighlightFirstMatch="False" OnClientEntryAdding="OnClientEntryAdding" />
                         </td>
-                        <td>Permit Number/SIC Code:
-                        <telerik:RadTextBox ID="txtSIC" runat="server" Width="200px" />
+                        <td>
+                            <asp:Label ID="lblSIC" runat="server" AssociatedControlID="txtSIC">Permit Number/SIC Code:</asp:Label>
+                            <telerik:RadTextBox ID="txtSIC" runat="server" Width="200px" />
                         </td>
                     </tr>
                 </table>

@@ -68,6 +68,15 @@ Partial Public Class _Default
     Protected WithEvents pnlSearch As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''lblAirsNo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblAirsNo As Global.Telerik.Web.UI.RadLabel
+
+    '''<summary>
     '''txtAirsNo control.
     '''</summary>
     '''<remarks>
@@ -77,6 +86,15 @@ Partial Public Class _Default
     Protected WithEvents txtAirsNo As Global.Telerik.Web.UI.RadAutoCompleteBox
 
     '''<summary>
+    '''lblFacility control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFacility As Global.Telerik.Web.UI.RadLabel
+
+    '''<summary>
     '''txtFacility control.
     '''</summary>
     '''<remarks>
@@ -84,6 +102,15 @@ Partial Public Class _Default
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtFacility As Global.Telerik.Web.UI.RadAutoCompleteBox
+
+    '''<summary>
+    '''lblSIC control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblSIC As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''txtSIC control.
