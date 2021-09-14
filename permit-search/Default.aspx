@@ -12,6 +12,9 @@
             }
         }
     </script>
+    <% If CurrentEnvironment <> "Production" Then %>
+    <link rel="icon" href="/icon-dev.svg" />
+    <% End If %>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">

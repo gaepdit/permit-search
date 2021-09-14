@@ -134,6 +134,7 @@
     <Content Include="google5acc82aef12cf7c5.html" />
     <Content Include="icon-192.png" />
     <Content Include="icon-512.png" />
+    <Content Include="icon-dev.svg" />
     <Content Include="icon.svg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\header-bg.png" />

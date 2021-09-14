@@ -4,6 +4,8 @@ Imports Telerik.Web.UI
 Public Class _Default
     Inherits Page
 
+    Public ReadOnly Property CurrentEnvironment As String = ConfigurationManager.AppSettings("APP_ENVIRONMENT")
+
     Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack AndAlso Request.QueryString("AirsNumber") <> "" Then
             Dim airsNumber As String = Request.QueryString("AirsNumber")

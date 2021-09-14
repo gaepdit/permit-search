@@ -12,6 +12,7 @@
     <add key="Telerik.Skin" value="Bootstrap" />
     <add key="Telerik.ScriptManager.TelerikCdn" value="Disabled" />
     <add key="Telerik.StyleSheetManager.TelerikCdn" value="Disabled" />
+    <add key="APP_ENVIRONMENT" value="Development" />
   </appSettings>
   <system.web>
     <compilation debug="true" strict="false" explicit="true" targetFramework="4.5.2" />
