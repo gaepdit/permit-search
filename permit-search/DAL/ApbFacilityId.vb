@@ -5,7 +5,7 @@
     ''' <summary>
     ''' APB facility ID as an eight-character string in the form "00000000"
     ''' </summary>
-    Private ReadOnly Property ShortString As String
+    Public ReadOnly Property ShortString As String
 
     Public Sub New(airsNumber As String)
         If Not IsValidAirsNumberFormat(airsNumber) Then

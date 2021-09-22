@@ -11,7 +11,7 @@ Public Class _Default
             Dim airsNumber As String = Request.QueryString("AirsNumber")
 
             If ApbFacilityId.IsValidAirsNumberFormat(airsNumber) Then
-                txtAirsNo.Entries.Insert(0, New AutoCompleteBoxEntry(New ApbFacilityId(airsNumber).FormattedString))
+                txtAirsNo.Entries.Insert(0, New AutoCompleteBoxEntry(New ApbFacilityId(airsNumber).ShortString))
                 SearchPermits()
             End If
         End If
