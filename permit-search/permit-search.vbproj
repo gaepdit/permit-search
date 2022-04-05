@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build"
-  xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -170,10 +169,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.36.1.44192\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.36.1.44192\analyzers\SonarAnalyzer.CFG.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.36.1.44192\analyzers\SonarAnalyzer.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.36.1.44192\analyzers\SonarAnalyzer.VisualBasic.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.37.0.45539\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.37.0.45539\analyzers\SonarAnalyzer.CFG.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.37.0.45539\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.37.0.45539\analyzers\SonarAnalyzer.VisualBasic.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -224,7 +223,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
