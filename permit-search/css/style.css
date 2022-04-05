@@ -157,14 +157,40 @@ ul {
 /* Test site banner */
 .banner-test-site {
     text-shadow: 0 0 4px white;
-    opacity: 0.8;
-    background: repeating-linear-gradient(135deg,#f6da52,#f6da52 10px,#ffef80 10px,#ffef80 20px);
     font-weight: 700;
     text-transform: uppercase;
     text-align: center;
     position: sticky;
     top: 0;
     z-index: 1000;
-    font-size: .9rem;
     line-height: 1.5;
+    color: #333;
+    font-size: 16px;
+    font-family: system-ui;
+    background: repeating-linear-gradient(135deg,#f6da52cc,#f6da52cc 10px,#ffef80cc 10px,#ffef80cc 20px);
+    box-shadow: 0 4px 8px rgba(130, 106, 15, 0.37);
+}
+
+/* Print */
+@media print {
+    html, body {
+        font-size: 12px;
+        color: #000;
+    }
+
+    .banner-test-site {
+        position: static;
+        box-shadow: none;
+        text-shadow: none;
+        border: 1px solid;
+    }
+
+        .banner-test-site::after {
+            content: "—Not for public distribution";
+        }
+
+    #gagov_external_blocks-topper,
+    .gaepd-footer {
+        display: none;
+    }
 }
