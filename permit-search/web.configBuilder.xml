@@ -15,8 +15,8 @@
     <add key="APP_ENVIRONMENT" value="Development" />
   </appSettings>
   <system.web>
-    <compilation debug="true" strict="false" explicit="true" targetFramework="4.5.2" />
-    <httpRuntime targetFramework="4.5.2" />
+    <compilation debug="true" strict="false" explicit="true" targetFramework="4.8" />
+    <httpRuntime targetFramework="4.8" />
     <httpCookies requireSSL="true" httpOnlyCookies="true" />
     <pages>
       <controls>
