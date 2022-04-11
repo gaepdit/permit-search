@@ -7,11 +7,11 @@ Imports System.Runtime.InteropServices
 ' associated with an assembly.
 
 ' Review the values of the assembly attributes
-<Assembly: AssemblyTitle("permitsearch.gaepd.org")>
+<Assembly: AssemblyTitle("Permit Search Engine")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("Georgia Dept of Natural Resources")>
+<Assembly: AssemblyCompany("Georgia Environmental Protection Division")>
 <Assembly: AssemblyProduct("permitsearch.gaepd.org")>
-<Assembly: AssemblyCopyright("Copyright © Georgia Dept of Natural Resources 2017")>
+<Assembly: AssemblyCopyright("Copyright © Georgia Dept of Natural Resources 2022")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
