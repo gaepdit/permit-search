@@ -12,11 +12,13 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content="#e5f6fa" />
-    <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-topper.css" />
-    <link rel="stylesheet nofollow" href="https://georgia.gov/profiles/georgiagov/modules/custom/gagov_external_blocks/css/gagov_external_blocks-footer.css" />
+    <link rel="stylesheet" href="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_header.css"
+            integrity="sha384-02SuA0HBIRTwLIhbu1vYvptV3fB+uhvRKjM4M0JY/j2c8FYUFZ8rMEKSbeQ6u2Ww" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_footer.css"
+            integrity="sha384-DlhC3Gi+sZSJhxr/RR3eRPteqOp1hdHsMSh5U41c40k2RuCgrShGC4wsX4Lij4HW" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css?v=20220405" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server" />
-    <script type="text/javascript">
+    <script>
         !function (a, b, c, d, e, f, g, h) {
             a.RaygunObject = e, a[e] = a[e] || function () {
                 (a[e].o = a[e].o || []).push(arguments)
@@ -35,7 +37,7 @@
     <div class="banner-test-site">Test Site</div>
     <% End If %>
     <div class="bg-wrap">
-        <script type="text/javascript" src="https://georgia.gov/gagov_external_blocks/topper"></script>
+        <script src="https://trunk.georgia.gov/ga_legacy/js_header"></script>
 
         <form id="form1" class="form" runat="server">
             <div id="container">
@@ -59,10 +61,10 @@
                     <a href="https://georgia.gov/accessibility">Accessibility</a> |
                     <a href="https://georgia.gov/privacysecurity">Privacy/Security</a>
                 </div>
-                <script type="text/javascript" src="https://georgia.gov/gagov_external_blocks/footer"></script>
+                <script src="https://trunk.georgia.gov/ga_legacy/js_footer"></script>
             </div>
         </form>
-        <script type="text/javascript">
+        <script>
             rg4js('apiKey', '<%= RaygunApiKey %>');
             rg4js('enableCrashReporting', true);
             rg4js('enablePulse', true);

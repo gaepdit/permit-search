@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
-    <script type="text/javascript">
+    <script>
         function OnClientEntryAdding(sender, args) {
             if (sender.get_entries().get_count() > 0) {
                 var entries = sender.get_entries();

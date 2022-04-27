@@ -1,82 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
-  <configSections>
-    <section name="RaygunSettings" type="Mindscape.Raygun4Net.RaygunSettings, Mindscape.Raygun4Net" />
-  </configSections>
-  <connectionStrings>
-    <add name="SqlConnectionString" connectionString="" />
-  </connectionStrings>
-  <RaygunSettings apikey="" excludeHttpStatusCodes="404" excludeErrorsFromLocal="true" />
-  <appSettings>
-    <add key="Telerik.Web.UI.RenderMode" value="lightweight" />
-    <add key="Telerik.Skin" value="Bootstrap" />
-    <add key="Telerik.ScriptManager.TelerikCdn" value="Disabled" />
-    <add key="Telerik.StyleSheetManager.TelerikCdn" value="Disabled" />
-    <add key="APP_ENVIRONMENT" value="Development" />
-  </appSettings>
-  <system.web>
-    <compilation debug="true" strict="false" explicit="true" targetFramework="4.8" />
-    <httpRuntime targetFramework="4.8" />
-    <httpCookies requireSSL="true" httpOnlyCookies="true" />
-    <pages>
-      <controls>
-        <add tagPrefix="telerik" namespace="Telerik.Web.UI" assembly="Telerik.Web.UI" />
-      </controls>
-    </pages>
-    <httpHandlers>
-      <add path="ChartImage.axd" type="Telerik.Web.UI.ChartHttpHandler" verb="*" validate="false" />
-      <add path="Telerik.Web.UI.SpellCheckHandler.axd" type="Telerik.Web.UI.SpellCheckHandler" verb="*" validate="false" />
-      <add path="Telerik.Web.UI.DialogHandler.aspx" type="Telerik.Web.UI.DialogHandler" verb="*" validate="false" />
-      <add path="Telerik.RadUploadProgressHandler.ashx" type="Telerik.Web.UI.RadUploadProgressHandler" verb="*" validate="false" />
-      <add path="Telerik.Web.UI.WebResource.axd" type="Telerik.Web.UI.WebResource" verb="*" validate="false" />
-    </httpHandlers>
-    <httpModules />
-  </system.web>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- Redirect HTTP to HTTPS. This requires the URL Rewrite module to be installed in IIS. -->
-        <rule name="HTTP to HTTPS redirect" stopProcessing="true">
-          <match url="(.*)" />
-          <conditions>
-            <add input="{SERVER_PORT_SECURE}" pattern="^0$" />
-          </conditions>
-          <action type="Redirect" redirectType="Permanent" url="https://{HTTP_HOST}/{R:1}" />
-        </rule>
-      </rules>
-      <outboundRules>
-        <rule name="Add STS header when HTTPS" enabled="true">
-          <match serverVariable="RESPONSE_Strict_Transport_Security" pattern=".*" />
-          <conditions>
-            <add input="{HTTPS}" pattern="on" ignoreCase="true" />
-          </conditions>
-          <action type="Rewrite" value="max-age=63072000" />
-        </rule>
-      </outboundRules>
-    </rewrite>
-    <validation validateIntegratedModeConfiguration="false" />
-    <handlers>
-      <remove name="ChartImage_axd" />
-      <remove name="Telerik_Web_UI_SpellCheckHandler_axd" />
-      <remove name="Telerik_Web_UI_DialogHandler_aspx" />
-      <remove name="Telerik_RadUploadProgressHandler_ashx" />
-      <remove name="Telerik_Web_UI_WebResource_axd" />
-      <add name="ChartImage_axd" path="ChartImage.axd" type="Telerik.Web.UI.ChartHttpHandler" verb="*" preCondition="integratedMode" />
-      <add name="Telerik_Web_UI_SpellCheckHandler_axd" path="Telerik.Web.UI.SpellCheckHandler.axd" type="Telerik.Web.UI.SpellCheckHandler" verb="*" preCondition="integratedMode" />
-      <add name="Telerik_Web_UI_DialogHandler_aspx" path="Telerik.Web.UI.DialogHandler.aspx" type="Telerik.Web.UI.DialogHandler" verb="*" preCondition="integratedMode" />
-      <add name="Telerik_RadUploadProgressHandler_ashx" path="Telerik.RadUploadProgressHandler.ashx" type="Telerik.Web.UI.RadUploadProgressHandler" verb="*" preCondition="integratedMode" />
-      <add name="Telerik_Web_UI_WebResource_axd" path="Telerik.Web.UI.WebResource.axd" type="Telerik.Web.UI.WebResource" verb="*" preCondition="integratedMode" />
-    </handlers>
-    <modules>
-      <add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule"/>
-    </modules>
-  </system.webServer>
-  <runtime>
-    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
-      <dependentAssembly>
-        <assemblyIdentity name="Telerik.Web.UI" publicKeyToken="121fae78165ba3d4" />
-        <bindingRedirect oldVersion="0.0.0.0-2021.1.214.45" newVersion="2021.1.214.45" />
-      </dependentAssembly>
-    </assemblyBinding>
-  </runtime>
+	<configSections>
+		<section name="RaygunSettings" type="Mindscape.Raygun4Net.RaygunSettings, Mindscape.Raygun4Net" />
+		<sectionGroup name="nwebsec">
+			<section name="httpHeaderSecurityModule" type="NWebsec.Modules.Configuration.HttpHeaderSecurityConfigurationSection, NWebsec" requirePermission="false" />
+		</sectionGroup>
+	</configSections>
+	<connectionStrings>
+		<add name="SqlConnectionString" connectionString="" />
+	</connectionStrings>
+	<RaygunSettings apikey="" excludeHttpStatusCodes="404" excludeErrorsFromLocal="true" />
+	<appSettings>
+		<add key="APP_ENVIRONMENT" value="Development" />
+		<add key="Telerik.Web.UI.RenderMode" value="lightweight" />
+		<add key="Telerik.Skin" value="Bootstrap" />
+		<add key="Telerik.ScriptManager.TelerikCdn" value="Disabled" />
+		<add key="Telerik.StyleSheetManager.TelerikCdn" value="Disabled" />
+	</appSettings>
+	<system.web>
+		<compilation debug="true" strict="false" explicit="true" targetFramework="4.8" />
+		<httpRuntime targetFramework="4.8" enableVersionHeader="false" />
+		<httpCookies requireSSL="true" httpOnlyCookies="true" />
+		<pages>
+			<controls>
+				<add tagPrefix="telerik" namespace="Telerik.Web.UI" assembly="Telerik.Web.UI" />
+			</controls>
+		</pages>
+		<httpHandlers>
+			<add path="ChartImage.axd" type="Telerik.Web.UI.ChartHttpHandler" verb="*" validate="false" />
+			<add path="Telerik.Web.UI.SpellCheckHandler.axd" type="Telerik.Web.UI.SpellCheckHandler" verb="*" validate="false" />
+			<add path="Telerik.Web.UI.DialogHandler.aspx" type="Telerik.Web.UI.DialogHandler" verb="*" validate="false" />
+			<add path="Telerik.RadUploadProgressHandler.ashx" type="Telerik.Web.UI.RadUploadProgressHandler" verb="*" validate="false" />
+			<add path="Telerik.Web.UI.WebResource.axd" type="Telerik.Web.UI.WebResource" verb="*" validate="false" />
+		</httpHandlers>
+	</system.web>
+	<system.webServer>
+		<rewrite>
+			<rules>
+				<!-- Redirect HTTP to HTTPS. This requires the URL Rewrite module to be installed in IIS. -->
+				<rule name="HTTP to HTTPS redirect" stopProcessing="true">
+					<match url="(.*)" />
+					<conditions>
+						<add input="{SERVER_PORT_SECURE}" pattern="^0$" />
+					</conditions>
+					<action type="Redirect" redirectType="Permanent" url="https://{HTTP_HOST}/{R:1}" />
+				</rule>
+			</rules>
+			<outboundRules>
+				<rule name="Add STS header when HTTPS" enabled="true">
+					<match serverVariable="RESPONSE_Strict_Transport_Security" pattern=".*" />
+					<conditions>
+						<add input="{HTTPS}" pattern="on" ignoreCase="true" />
+					</conditions>
+					<action type="Rewrite" value="max-age=63072000" />
+				</rule>
+			</outboundRules>
+		</rewrite>
+		<validation validateIntegratedModeConfiguration="false" />
+		<handlers>
+			<remove name="ChartImage_axd" />
+			<remove name="Telerik_Web_UI_SpellCheckHandler_axd" />
+			<remove name="Telerik_Web_UI_DialogHandler_aspx" />
+			<remove name="Telerik_RadUploadProgressHandler_ashx" />
+			<remove name="Telerik_Web_UI_WebResource_axd" />
+			<add name="ChartImage_axd" path="ChartImage.axd" type="Telerik.Web.UI.ChartHttpHandler" verb="*" preCondition="integratedMode" />
+			<add name="Telerik_Web_UI_SpellCheckHandler_axd" path="Telerik.Web.UI.SpellCheckHandler.axd" type="Telerik.Web.UI.SpellCheckHandler" verb="*" preCondition="integratedMode" />
+			<add name="Telerik_Web_UI_DialogHandler_aspx" path="Telerik.Web.UI.DialogHandler.aspx" type="Telerik.Web.UI.DialogHandler" verb="*" preCondition="integratedMode" />
+			<add name="Telerik_RadUploadProgressHandler_ashx" path="Telerik.RadUploadProgressHandler.ashx" type="Telerik.Web.UI.RadUploadProgressHandler" verb="*" preCondition="integratedMode" />
+			<add name="Telerik_Web_UI_WebResource_axd" path="Telerik.Web.UI.WebResource.axd" type="Telerik.Web.UI.WebResource" verb="*" preCondition="integratedMode" />
+		</handlers>
+		<modules>
+			<add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule" />
+			<add name="NWebsecHttpHeaderSecurityModule" type="NWebsec.Modules.HttpHeaderSecurityModule, NWebsec" />
+		</modules>
+		<httpProtocol>
+			<customHeaders>
+				<clear />
+			</customHeaders>
+		</httpProtocol>
+		<security>
+			<requestFiltering>
+				<hiddenSegments>
+					<add segment="NWebsecConfig" />
+				</hiddenSegments>
+			</requestFiltering>
+		</security>
+	</system.webServer>
+
+	<!-- Configuration for the NWebsec package. See https://docs.nwebsec.com/en/aspnet4/index.html -->
+	<nwebsec>
+		<httpHeaderSecurityModule xmlns="http://nwebsec.com/HttpHeaderSecurityModuleConfig.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="NWebsecConfig/HttpHeaderSecurityModuleConfig.xsd">
+			<redirectValidation enabled="true">
+				<allowSameHostRedirectsToHttps enabled="true" />
+			</redirectValidation>
+			<securityHttpHeaders>
+				<x-Frame-Options policy="Deny" />
+				<x-XSS-Protection policy="FilterEnabled" blockMode="true" />
+				<x-Content-Type-Options enabled="true" />
+				<referrer-Policy enabled="true" policy="strict-origin-when-cross-origin" />
+				<content-Security-Policy enabled="true" >
+					<default-src none="true" />
+					<script-src self="true" unsafeInline="true" unsafeEval="true">
+						<add source="https://cdn.raygun.io/raygun4js/raygun.min.js" />
+						<add source="https://trunk.georgia.gov/ga_legacy/js_header" />
+						<add source="https://trunk.georgia.gov/ga_legacy/js_footer" />
+					</script-src>
+					<style-src self="true" unsafeInline="true">
+						<add source="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_footer.css" />
+						<add source="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_header.css" />
+					</style-src>
+					<img-src self="true">
+						<add source="https://trunk.georgia.gov" />
+					</img-src>
+					<connect-src self="true">
+						<add source="https://api.raygun.io" />
+					</connect-src>
+					<font-src self="true">
+						<add source="https://fonts.gstatic.com" />
+					</font-src>
+					<form-action self="true" />
+					<frame-ancestors none="true" />
+					<manifest-src self="true" />
+					<base-uri self="true" />
+				</content-Security-Policy>
+			</securityHttpHeaders>
+		</httpHeaderSecurityModule>
+	</nwebsec>
+	
+	<runtime>
+		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
+			<dependentAssembly>
+				<assemblyIdentity name="Telerik.Web.UI" publicKeyToken="121fae78165ba3d4" />
+				<bindingRedirect oldVersion="0.0.0.0-2021.1.214.45" newVersion="2021.1.214.45" />
+			</dependentAssembly>
+		</assemblyBinding>
+	</runtime>
 </configuration>
