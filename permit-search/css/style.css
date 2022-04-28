@@ -9,10 +9,6 @@ html {
 }
 
 body {
-    background: #5d5751;
-}
-
-.bg-wrap {
     background: #f5f5f6 url(/images/header-bg.png) repeat-x top left;
 }
 
@@ -130,29 +126,21 @@ ul {
         flex-grow: 2;
     }
 
-/* GeorgiaGov Interactive Shared Elements */
-.gaepd-footer {
-    color: #fff;
-    border-top: 3px solid HSL(195, 2%, 32%);
-    background: #5d5751;
-    font-family: Verdana, sans-serif;
-    font-size: 1.2rem;
+/* Footer links */
+.footer-links {
     text-align: center;
+    line-height: 16px;
+    margin-bottom: 10px;
 }
 
-    .gaepd-footer a {
-        color: white;
+    .footer-links a {
+        color: #92501a;
+        text-decoration: none;
     }
 
-        .gaepd-footer a:hover,
-        .gaepd-footer a:focus {
-            text-decoration: none;
+        .footer-links a:hover, .footer-links a:focus {
+            text-decoration: underline;
         }
-
-#gagov_external_blocks-footer #zone-footer-wrapper {
-    min-height: 200px;
-    background: #5d5751 !important;
-}
 
 /* Test site banner */
 .banner-test-site {
@@ -188,9 +176,4 @@ ul {
         .banner-test-site::after {
             content: "—Not for public distribution";
         }
-
-    #gagov_external_blocks-topper,
-    .gaepd-footer {
-        display: none;
-    }
 }

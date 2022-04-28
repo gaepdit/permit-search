@@ -12,11 +12,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <meta name="theme-color" content="#e5f6fa" />
-    <link rel="stylesheet" href="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_header.css"
-            integrity="sha384-02SuA0HBIRTwLIhbu1vYvptV3fB+uhvRKjM4M0JY/j2c8FYUFZ8rMEKSbeQ6u2Ww" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_footer.css"
-            integrity="sha384-DlhC3Gi+sZSJhxr/RR3eRPteqOp1hdHsMSh5U41c40k2RuCgrShGC4wsX4Lij4HW" crossorigin="anonymous" />
-    <link rel="stylesheet" href="css/style.css?v=20220405" type="text/css" />
+    <link rel="stylesheet" href="css/style.css?v=20220428" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server" />
     <script>
         !function (a, b, c, d, e, f, g, h) {
@@ -36,41 +32,29 @@
     <% If CurrentEnvironment <> "Production" Then %>
     <div class="banner-test-site">Test Site</div>
     <% End If %>
-    <div class="bg-wrap">
-        <script src="https://trunk.georgia.gov/ga_legacy/js_header"></script>
-
-        <form id="form1" class="form" runat="server">
-            <div id="container">
-                <div id="header">
-                    <img id="logo" src='<%= Page.ResolveUrl("~/Images/logo.png") %>' height="101" width="94" alt="Georgia EPD" />
-                    <h1>Environmental Protection Division</h1>
-                </div>
-
-                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" />
-
-                <p style="text-align: center; line-height: 16px; margin-bottom: 10px;"><a href="https://gatv.gaepd.org" style="color: #92501a">Title V Applications Archive</a></p>
+    <form id="form1" class="form" runat="server">
+        <div id="container">
+            <div id="header">
+                <img id="logo" src='<%= Page.ResolveUrl("~/Images/logo.png") %>' height="101" width="94" alt="Georgia EPD" />
+                <h1>Environmental Protection Division</h1>
             </div>
 
-            <div class="gaepd-footer">
-                <div style="font-size: 11px; line-height: 16px; margin-top: 10px; text-align: center;">
-                    <a href="https://epd.georgia.gov/air-protection-branch">Air Protection Branch</a> |
-                    <a href="https://epd.georgia.gov/">Environmental Protection Division</a> |
-                    <a href="https://gadnr.org/">Georgia Department of Natural Resources</a>
-                    <br />
-                    <a href="https://gadnr.org/ada">DNR Accessibility Notice </a>|
-                    <a href="https://georgia.gov/accessibility">Accessibility</a> |
-                    <a href="https://georgia.gov/privacysecurity">Privacy/Security</a>
-                </div>
-                <script src="https://trunk.georgia.gov/ga_legacy/js_footer"></script>
-            </div>
-        </form>
-        <script>
-            rg4js('apiKey', '<%= RaygunApiKey %>');
-            rg4js('enableCrashReporting', true);
-            rg4js('enablePulse', true);
-            rg4js('options', { ignore3rdPartyErrors: true });
-            rg4js('logContentsOfXhrCalls', true);
-        </script>
-    </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server" />
+
+            <p class="footer-links">
+                <a href="https://gatv.gaepd.org">Title&nbsp;V&nbsp;Applications&nbsp;Archive</a> |
+                    <a href="https://epd.georgia.gov/air-protection-branch">Air&nbsp;Protection&nbsp;Branch</a> |
+                    <a href="https://epd.georgia.gov/">Environmental&nbsp;Protection&nbsp;Division</a> |
+                    <a href="https://gadnr.org/">Georgia&nbsp;Department&nbsp;of&nbsp;Natural&nbsp;Resources</a>
+            </p>
+        </div>
+    </form>
+    <script>
+        rg4js('apiKey', '<%= RaygunApiKey %>');
+        rg4js('enableCrashReporting', true);
+        rg4js('enablePulse', true);
+        rg4js('options', { ignore3rdPartyErrors: true });
+        rg4js('logContentsOfXhrCalls', true);
+    </script>
 </body>
 </html>

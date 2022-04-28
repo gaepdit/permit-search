@@ -102,16 +102,9 @@
 					<default-src none="true" />
 					<script-src self="true" unsafeInline="true" unsafeEval="true">
 						<add source="https://cdn.raygun.io/raygun4js/raygun.min.js" />
-						<add source="https://trunk.georgia.gov/ga_legacy/js_header" />
-						<add source="https://trunk.georgia.gov/ga_legacy/js_footer" />
 					</script-src>
-					<style-src self="true" unsafeInline="true">
-						<add source="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_footer.css" />
-						<add source="https://trunk.georgia.gov/modules/custom/ga_legacy_header_footer/css/ga_legacy_header.css" />
-					</style-src>
-					<img-src self="true">
-						<add source="https://trunk.georgia.gov" />
-					</img-src>
+					<style-src self="true" unsafeInline="true"/>
+					<img-src self="true"/>
 					<connect-src self="true">
 						<add source="https://api.raygun.io" />
 					</connect-src>
