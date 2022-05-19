@@ -78,7 +78,6 @@
 				<clear />
 				<add name="Report-To" value=""/>
 				<add name="Reporting-Endpoints" value=""/>
-				<add name="NEL" value="{&quot;report_to&quot;:&quot;default&quot;,&quot;max_age&quot;:2592000}"/>
 			</customHeaders>
 		</httpProtocol>
 		<security>
