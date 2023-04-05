@@ -7,13 +7,35 @@
     <meta name="viewport" content="width=device-width" />
     <title>Georgia Air Permit Search Engine</title>
     <meta name="description" content="Georgia Air Protection Branch Permit Search Engine" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="theme-color" content="#e5f6fa" />
+
+    <asp:PlaceHolder runat="server">
+        <% If CurrentEnvironment = "Production" Then %>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" charset="utf-8" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
+        <meta name="theme-color" content="#e5f6fa" />
+        <% Else %>
+        <link rel="icon" href="/assets/dev/dev-favicon.ico" sizes="any">
+        <link rel="icon" href="/assets/dev/dev-icon.svg" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/assets/dev/dev-apple-touch-icon.png">
+        <link rel="manifest" href="/assets/dev/dev-site.webmanifest">
+        <meta name="theme-color" content="#333333">
+        <% End If %>
+    </asp:PlaceHolder>
+
     <link rel="stylesheet" href="css/style.css?v=20220428" type="text/css" />
-    <asp:ContentPlaceHolder ID="head" runat="server" />
+    <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
+    <script>
+        function OnClientEntryAdding(sender, args) {
+            if (sender.get_entries().get_count() > 0) {
+                var entries = sender.get_entries();
+                entries.clear();
+                entries.add(args.get_entry());
+                args.set_cancel(true);
+            }
+        }
+    </script>
     <script>
         !function (a, b, c, d, e, f, g, h) {
             a.RaygunObject = e, a[e] = a[e] || function () {

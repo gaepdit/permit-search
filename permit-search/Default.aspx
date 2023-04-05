@@ -1,22 +1,5 @@
 ﻿<%@ Page Language="VB" MasterPageFile="~/Main.Master" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="permitsearch.gaepd.org._Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
-    <script>
-        function OnClientEntryAdding(sender, args) {
-            if (sender.get_entries().get_count() > 0) {
-                var entries = sender.get_entries();
-                entries.clear();
-                entries.add(args.get_entry());
-                args.set_cancel(true);
-            }
-        }
-    </script>
-    <% If CurrentEnvironment <> "Production" Then %>
-    <link rel="icon" href="/icon-dev.svg" />
-    <% End If %>
-</asp:Content>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
         <Scripts>

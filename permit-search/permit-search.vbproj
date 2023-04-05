@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -139,16 +139,20 @@
   <ItemGroup>
     <Content Include=".well-known\security.txt" />
     <Content Include="apple-touch-icon.png" />
+    <Content Include="assets\dev\dev-apple-touch-icon.png" />
+    <Content Include="assets\dev\dev-favicon.ico" />
+    <Content Include="assets\dev\dev-icon-192.png" />
+    <Content Include="assets\dev\dev-icon-512.png" />
+    <Content Include="assets\dev\dev-icon.svg" />
     <Content Include="favicon.ico" />
     <Content Include="google5acc82aef12cf7c5.html" />
     <Content Include="icon-192.png" />
     <Content Include="icon-512.png" />
-    <Content Include="icon-dev.svg" />
     <Content Include="icon.svg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\header-bg.png" />
     <Content Include="Main.Master" />
-    <Content Include="manifest.webmanifest" />
+    <Content Include="assets\dev\dev-site.webmanifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -170,6 +174,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+    <Content Include="site.webmanifest" />
     <None Include="web.configBuilder.Debug.xml">
       <DependentUpon>web.configBuilder.xml</DependentUpon>
     </None>
