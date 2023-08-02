@@ -46,11 +46,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Mindscape.Raygun4Net, Version=5.12.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mindscape.Raygun4Net.5.13.0\lib\net40\Mindscape.Raygun4Net.dll</HintPath>
+    <Reference Include="Mindscape.Raygun4Net, Version=6.0.3.0, Culture=neutral, PublicKeyToken=20dddfb3684a7aa5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mindscape.Raygun4Net.6.0.3\lib\net40\Mindscape.Raygun4Net.dll</HintPath>
     </Reference>
-    <Reference Include="Mindscape.Raygun4Net4, Version=5.13.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Mindscape.Raygun4Net.5.13.0\lib\net40\Mindscape.Raygun4Net4.dll</HintPath>
+    <Reference Include="Mindscape.Raygun4Net.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=002e1b57394fa9b9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mindscape.Raygun4Net.6.0.3\lib\net40\Mindscape.Raygun4Net.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Mindscape.Raygun4Net4, Version=6.0.3.0, Culture=neutral, PublicKeyToken=002e1b57394fa9b9, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mindscape.Raygun4Net.6.0.3\lib\net40\Mindscape.Raygun4Net4.dll</HintPath>
     </Reference>
     <Reference Include="NWebsec, Version=6.0.0.0, Culture=neutral, PublicKeyToken=3613da5f958908a1, processorArchitecture=MSIL">
       <HintPath>..\packages\NWebsec.6.0.0\lib\net45\NWebsec.dll</HintPath>
@@ -63,17 +66,17 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
     <Reference Include="System.Configuration" />
-    <Reference Include="Telerik.Web.Design, Version=2022.2.622.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2022.2.622\lib\net45\Telerik.Web.Design.dll</HintPath>
+    <Reference Include="Telerik.Web.Design, Version=2023.2.714.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2023.2.714\lib\net45\Telerik.Web.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Web.Device.Detection, Version=2022.2.622.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2022.2.622\lib\net45\Telerik.Web.Device.Detection.dll</HintPath>
+    <Reference Include="Telerik.Web.Device.Detection, Version=2023.2.714.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2023.2.714\lib\net45\Telerik.Web.Device.Detection.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Web.UI, Version=2022.2.622.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2022.2.622\lib\net45\Telerik.Web.UI.dll</HintPath>
+    <Reference Include="Telerik.Web.UI, Version=2023.2.714.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2023.2.714\lib\net45\Telerik.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.Web.UI.Skins, Version=2022.2.622.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2022.2.622\lib\net45\Telerik.Web.UI.Skins.dll</HintPath>
+    <Reference Include="Telerik.Web.UI.Skins, Version=2023.2.714.45, Culture=neutral, PublicKeyToken=121fae78165ba3d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Telerik.UI.for.AspNet.Ajax.Net45.2023.2.714\lib\net45\Telerik.Web.UI.Skins.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -186,10 +189,10 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.51.0.59060\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.51.0.59060\analyzers\SonarAnalyzer.CFG.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.51.0.59060\analyzers\SonarAnalyzer.dll" />
-    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.8.51.0.59060\analyzers\SonarAnalyzer.VisualBasic.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.9.6.0.74858\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.9.6.0.74858\analyzers\SonarAnalyzer.CFG.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.9.6.0.74858\analyzers\SonarAnalyzer.dll" />
+    <Analyzer Include="..\packages\SonarAnalyzer.VisualBasic.9.6.0.74858\analyzers\SonarAnalyzer.VisualBasic.dll" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
