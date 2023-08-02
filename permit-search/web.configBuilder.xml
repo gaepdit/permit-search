@@ -73,13 +73,6 @@
 			<add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule"/>
 			<add name="NWebsecHttpHeaderSecurityModule" type="NWebsec.Modules.HttpHeaderSecurityModule, NWebsec"/>
 		</modules>
-		<httpProtocol>
-			<customHeaders>
-				<clear />
-				<add name="Report-To" value=""/>
-				<add name="Reporting-Endpoints" value=""/>
-			</customHeaders>
-		</httpProtocol>
 		<security>
 			<requestFiltering>
 				<hiddenSegments>
@@ -108,6 +101,7 @@
 					<style-src self="true" unsafeInline="true"/>
 					<img-src self="true"/>
 					<connect-src self="true">
+						<add source="https://api.raygun.com"/>
 						<add source="https://api.raygun.io"/>
 					</connect-src>
 					<font-src self="true">
