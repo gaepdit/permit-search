@@ -80,6 +80,10 @@
 				</hiddenSegments>
 			</requestFiltering>
 		</security>
+		<staticContent>
+			<remove fileExtension=".webmanifest"/>
+			<mimeMap fileExtension=".webmanifest" mimeType="application/json"/>
+		</staticContent>
 	</system.webServer>
 
 	<!-- Configuration for the NWebsec package. See https://docs.nwebsec.com/en/aspnet4/index.html -->
