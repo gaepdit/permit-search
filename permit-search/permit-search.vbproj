@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -160,8 +160,10 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\PublishProfiles\Publish-Develop.pubxml" />
-    <None Include="My Project\PublishProfiles\Publish-Production.pubxml" />
+    <None Include="My Project\PublishProfiles\azure-dev-app.pubxml" />
+    <None Include="My Project\PublishProfiles\azure-prod-app-1.pubxml" />
+    <None Include="My Project\PublishProfiles\azure-prod-app-2.pubxml" />
+    <None Include="My Project\PublishProfiles\azure-test-app.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -179,6 +181,9 @@
     <None Include="packages.config" />
     <Content Include="site.webmanifest" />
     <None Include="web.configBuilder.Debug.xml">
+      <DependentUpon>web.configBuilder.xml</DependentUpon>
+    </None>
+    <None Include="web.configBuilder.Staging.xml">
       <DependentUpon>web.configBuilder.xml</DependentUpon>
     </None>
     <None Include="web.configBuilder.Release.xml">
@@ -212,6 +217,16 @@
   </PropertyGroup>
   <PropertyGroup>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>permitsearch.gaepd.org.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
