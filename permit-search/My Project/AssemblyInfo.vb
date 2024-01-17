@@ -11,7 +11,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Georgia Environmental Protection Division")>
 <Assembly: AssemblyProduct("permitsearch.gaepd.org")>
-<Assembly: AssemblyCopyright("Copyright © Georgia Dept of Natural Resources 2022")>
+<Assembly: AssemblyCopyright("Copyright © Georgia Dept of Natural Resources 2024")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
