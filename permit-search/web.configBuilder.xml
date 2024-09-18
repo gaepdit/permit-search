@@ -123,10 +123,6 @@
 	<runtime>
 		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
 			<dependentAssembly>
-				<assemblyIdentity name="Telerik.Web.UI" publicKeyToken="121fae78165ba3d4" />
-				<bindingRedirect oldVersion="0.0.0.0-2022.2.622.45" newVersion="2022.2.622.45" />
-			</dependentAssembly>
-			<dependentAssembly>
 				<assemblyIdentity name="System.Reflection.Metadata" publicKeyToken="b03f5f7f11d50a3a" culture="neutral" />
 				<bindingRedirect oldVersion="0.0.0.0-8.0.0.0" newVersion="8.0.0.0" />
 			</dependentAssembly>
