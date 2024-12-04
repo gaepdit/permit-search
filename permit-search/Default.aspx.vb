@@ -15,6 +15,14 @@ Public Class _Default
                 SearchPermits()
             End If
         End If
+
+        ShowMaintenanceMessage()
+    End Sub
+
+    Private Sub ShowMaintenanceMessage()
+        If Date.Now <= New DateTime(2024, 12, 9, 6, 0, 0, DateTimeKind.Local) Then
+            MaintenanceOutage.Visible = True
+        End If
     End Sub
 
     Private Sub SearchPermits()
