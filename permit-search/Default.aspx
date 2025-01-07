@@ -75,8 +75,7 @@
                                 <asp:HyperLink ID="hlFinalPermit" runat="server" Target="_blank" />
                             </ItemTemplate>
                         </telerik:GridTemplateColumn>
-                        <telerik:GridBoundColumn DataField="IssuanceDate" HeaderText="Issuance Date" DataFormatString="{0:d&#8209;MMM&#8209;yyyy}" />
-                        <telerik:GridBoundColumn DataField="PermitStatus" HeaderText="Permit Status" AllowSorting="false" />
+                        <telerik:GridBoundColumn DataField="IssuanceDate" HeaderText="Issuance Date" DataFormatString="{0:d-MMM-yyyy}" />
                         <telerik:GridTemplateColumn HeaderText="Other Documents">
                             <ItemTemplate>
                                 <ul id="listDocs" runat="server">
