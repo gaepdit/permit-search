@@ -16,8 +16,7 @@ Module PermitSearch
         Dim query As String =
             "select ApplicationNumber, AIRS, FacilityName, PermitNumber, 
                IssuanceDate, FileType, VNarrative, VFinal, PSDAppSum,PSDPrelim,
-               PSDNarrative, PSDFinalDet, PSDFinal, OtherNarrative, OtherPermit,
-               PermitStatus
+               PSDNarrative, PSDFinalDet, PSDFinal, OtherNarrative, OtherPermit
             from dbo.VW_GA_PERMITS
             where AIRSNumber like concat('%', @airs, '%')
               and FacilityName like concat('%', @name, '%')
