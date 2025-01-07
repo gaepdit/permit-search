@@ -15,6 +15,12 @@
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#e5f6fa" />
+        <% ElseIf CurrentEnvironment = "Staging" Then %>
+        <link rel="icon" href="/assets/uat/uat-favicon.ico" sizes="48x48">
+        <link rel="icon" href="/assets/uat/uat-icon.svg" sizes="any" type="image/svg+xml">
+        <link rel="apple-touch-icon" href="/assets/uat/uat-apple-touch-icon.png">
+        <link rel="manifest" href="/assets/uat/uat-site.webmanifest">
+        <meta name="theme-color" content="#333333">
         <% Else %>
         <link rel="icon" href="/assets/dev/dev-favicon.ico" sizes="48x48">
         <link rel="icon" href="/assets/dev/dev-icon.svg" sizes="any" type="image/svg+xml">
