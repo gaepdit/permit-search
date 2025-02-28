@@ -1,3 +1,6 @@
+Imports System.Net.Http
+Imports System.Text.Json
+Imports System.Threading.Tasks
 Imports System.Web.UI.HtmlControls
 Imports Telerik.Web.UI
 
@@ -5,8 +8,9 @@ Public Class _Default
     Inherits Page
 
     Public ReadOnly Property CurrentEnvironment As String = ConfigurationManager.AppSettings("APP_ENVIRONMENT")
+    Public ReadOnly Property OrgNotificationsApiUrl As String = ConfigurationManager.AppSettings("OrgNotificationsApiUrl")
 
-    Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Async Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack AndAlso Request.QueryString("AirsNumber") <> "" Then
             Dim airsNumber As String = Request.QueryString("AirsNumber")
 
@@ -16,14 +20,35 @@ Public Class _Default
             End If
         End If
 
-        ShowMaintenanceMessage()
+        Await DisplayNotificationsAsync()
     End Sub
 
-    Private Sub ShowMaintenanceMessage()
-        If Date.Now <= New DateTime(2024, 12, 9, 6, 0, 0, DateTimeKind.Local) Then
-            MaintenanceOutage.Visible = True
+    <Diagnostics.CodeAnalysis.SuppressMessage("Major Code Smell", "S108:Nested blocks of code should not be left empty", Justification:="<Pending>")>
+    Private Async Function DisplayNotificationsAsync() As Task
+        If String.IsNullOrEmpty(OrgNotificationsApiUrl) Then
+            Return
         End If
-    End Sub
+
+        Try
+            Dim client As New HttpClient()
+            Dim response As HttpResponseMessage = Await client.GetAsync(OrgNotificationsApiUrl)
+            If response.IsSuccessStatusCode Then
+                Dim data As String = Await response.Content.ReadAsStringAsync()
+                Dim notifications As List(Of OrgNotification) = JsonSerializer.Deserialize(Of List(Of OrgNotification))(data)
+
+                If notifications IsNot Nothing AndAlso notifications.Count > 0 Then
+                    For Each notification As OrgNotification In notifications
+                        Dim div As New HtmlGenericControl("div")
+                        div.Attributes("class") = "announcement announcement-severe"
+                        div.InnerHtml = $"<h2>Notice</h2><p>{notification.Message}</p>"
+                        OrgNotifications.Controls.Add(div)
+                    Next
+                End If
+            End If
+        Catch ex As Exception
+            ' Intentionally left empty. If the API is unresponsive or other error occurs, no notifications will be displayed.
+        End Try
+    End Function
 
     Private Sub SearchPermits()
         gvwPermits.Visible = True
