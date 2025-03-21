@@ -9,7 +9,7 @@
 	<connectionStrings>
 		<add name="SqlConnectionString" connectionString=""/>
 	</connectionStrings>
-	<RaygunSettings apikey="" excludeHttpStatusCodes="404" excludeErrorsFromLocal="true"/>
+	<RaygunSettings apikey="" excludeHttpStatusCodes="404"/>
 	<appSettings>
 		<add key="APP_ENVIRONMENT" value="Development"/>
 		<add key="Telerik.Web.UI.RenderMode" value="lightweight"/>
@@ -95,6 +95,7 @@
 		<httpHeaderSecurityModule xmlns="http://nwebsec.com/HttpHeaderSecurityModuleConfig.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="NWebsecConfig/HttpHeaderSecurityModuleConfig.xsd">
 			<redirectValidation enabled="true">
 				<allowSameHostRedirectsToHttps enabled="true"/>
+				<add allowedDestination="https://raw.githubusercontent.com/gaepdit/"/>
 			</redirectValidation>
 			<securityHttpHeaders>
 				<x-Frame-Options policy="Deny"/>
