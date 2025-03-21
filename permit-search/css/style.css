@@ -167,7 +167,7 @@ ul {
     margin-top: 5px;
     margin-right: 13px;
     margin-bottom: 20px;
-    padding: 5px 16px;
+    padding: 10px 16px;
     background: lightyellow;
     border: 1px solid beige;
     border-radius: 5px;
@@ -188,6 +188,10 @@ ul {
         margin-top: 0;
         padding-top: 0;
         border: none;
+    }
+
+    .announcement p {
+        margin: 15px 0 0;
     }
 
     .announcement.announcement-mild {

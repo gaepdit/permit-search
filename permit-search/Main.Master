@@ -30,7 +30,7 @@
         <% End If %>
     </asp:PlaceHolder>
 
-    <link rel="stylesheet" href="css/style.css?v=20241204" type="text/css" />
+    <link rel="stylesheet" href="css/style.css?v=20250321" type="text/css" />
     <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
     <script>
         function OnClientEntryAdding(sender, args) {
