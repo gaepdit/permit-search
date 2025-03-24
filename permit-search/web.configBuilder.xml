@@ -12,6 +12,7 @@
 	<RaygunSettings apikey="" excludeHttpStatusCodes="404"/>
 	<appSettings>
 		<add key="APP_ENVIRONMENT" value="Development"/>
+		<add key="OrgNotificationsApiUrl" value="https://localhost:7233/current"/>
 		<add key="Telerik.Web.UI.RenderMode" value="lightweight"/>
 		<add key="Telerik.Skin" value="Bootstrap"/>
 		<add key="Telerik.ScriptManager.TelerikCdn" value="Disabled"/>

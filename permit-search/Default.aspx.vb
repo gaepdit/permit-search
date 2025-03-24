@@ -1,3 +1,7 @@
+Imports System.Net.Http
+Imports System.Runtime.Caching
+Imports System.Text.Json
+Imports System.Threading.Tasks
 Imports System.Web.UI.HtmlControls
 Imports Telerik.Web.UI
 
@@ -6,7 +10,7 @@ Public Class _Default
 
     Public ReadOnly Property CurrentEnvironment As String = ConfigurationManager.AppSettings("APP_ENVIRONMENT")
 
-    Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Async Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If Not IsPostBack AndAlso Request.QueryString("AirsNumber") <> "" Then
             Dim airsNumber As String = Request.QueryString("AirsNumber")
 
@@ -16,14 +20,55 @@ Public Class _Default
             End If
         End If
 
-        ShowMaintenanceMessage()
+        Await DisplayNotificationsAsync()
     End Sub
 
-    Private Sub ShowMaintenanceMessage()
-        If Date.Now <= New DateTime(2024, 12, 9, 6, 0, 0, DateTimeKind.Local) Then
-            MaintenanceOutage.Visible = True
+    Private Async Function DisplayNotificationsAsync() As Task
+        Dim notifications As List(Of OrgNotification) = Await GetNotificationsAsync()
+
+        If notifications.Count > 0 Then
+            Dim div As New HtmlGenericControl("div")
+            div.Attributes("class") = "announcement announcement-severe"
+            div.InnerHtml = "<h2>Notice</h2>"
+            For Each notification As OrgNotification In notifications
+                div.InnerHtml += $"<p>{notification.Message}</p>"
+            Next
+            div.InnerHtml += "<p>Please refer to the <a href=""https://status.gaepd.org/"">EPD-IT status page</a> for updates.</p>"
+            OrgNotifications.Controls.Add(div)
         End If
-    End Sub
+    End Function
+
+    Private Async Function GetNotificationsAsync() As Task(Of List(Of OrgNotification))
+        Const cacheKey As String = "OrgNotifications"
+        Dim orgNotificationsApiUrl As String = ConfigurationManager.AppSettings("OrgNotificationsApiUrl")
+
+        If String.IsNullOrEmpty(orgNotificationsApiUrl) Then
+            Return New List(Of OrgNotification)
+        End If
+
+        Dim cache As ObjectCache = MemoryCache.Default
+        Dim notifications As List(Of OrgNotification) = cache.Get(cacheKey)
+
+        If notifications Is Nothing Then
+            notifications = Await FetchNotificationsFromApi(orgNotificationsApiUrl)
+            cache.Add(cacheKey, notifications, DateTimeOffset.Now.AddHours(1))
+        End If
+
+        Return notifications
+    End Function
+
+    Private Async Function FetchNotificationsFromApi(orgNotificationsApiUrl As String) As Task(Of List(Of OrgNotification))
+        Try
+            Using client As New HttpClient()
+                Dim response As HttpResponseMessage = Await client.GetAsync(orgNotificationsApiUrl)
+                response.EnsureSuccessStatusCode()
+                Return JsonSerializer.Deserialize(Of List(Of OrgNotification))(Await response.Content.ReadAsStringAsync())
+            End Using
+        Catch
+            ' Intentionally left empty. If the API is unresponsive or other error occurs, no notifications will be displayed.
+            Return New List(Of OrgNotification)
+        End Try
+    End Function
 
     Private Sub SearchPermits()
         gvwPermits.Visible = True
