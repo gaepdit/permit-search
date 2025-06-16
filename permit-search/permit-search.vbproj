@@ -90,12 +90,6 @@
     <Reference Include="Mindscape.Raygun4Net4, Version=11.0.0.0, Culture=neutral, PublicKeyToken=d595e487e4f9f950, processorArchitecture=MSIL">
       <HintPath>..\packages\Mindscape.Raygun4Net.11.1.1\lib\net462\Mindscape.Raygun4Net4.dll</HintPath>
     </Reference>
-    <Reference Include="NWebsec, Version=6.0.0.0, Culture=neutral, PublicKeyToken=3613da5f958908a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NWebsec.6.0.0\lib\net45\NWebsec.dll</HintPath>
-    </Reference>
-    <Reference Include="NWebsec.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=3613da5f958908a1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NWebsec.Core.3.0.1\lib\net45\NWebsec.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -295,11 +289,7 @@
     <Content Include="Default.aspx" />
     <Content Include="permit.aspx" />
     <Content Include="web.config" />
-    <Content Include="web.configBuilder.Server-sample.xml" />
     <Content Include="web.configBuilder.xml" />
-    <None Include="NWebsecConfig\HttpHeaderSecurityModuleConfig.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="packages.config" />
     <Content Include="site.webmanifest" />
     <None Include="web.configBuilder.Debug.xml">

@@ -2,9 +2,6 @@
 <configuration>
 	<configSections>
 		<section name="RaygunSettings" type="Mindscape.Raygun4Net.RaygunSettings, Mindscape.Raygun4Net"/>
-		<sectionGroup name="nwebsec">
-			<section name="httpHeaderSecurityModule" type="NWebsec.Modules.Configuration.HttpHeaderSecurityConfigurationSection, NWebsec" requirePermission="false"/>
-		</sectionGroup>
 	</configSections>
 	<connectionStrings>
 		<add name="SqlConnectionString" connectionString=""/>
@@ -76,55 +73,23 @@
 		</handlers>
 		<modules>
 			<add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule"/>
-			<add name="NWebsecHttpHeaderSecurityModule" type="NWebsec.Modules.HttpHeaderSecurityModule, NWebsec"/>
 		</modules>
-		<security>
-			<requestFiltering>
-				<hiddenSegments>
-					<add segment="NWebsecConfig"/>
-				</hiddenSegments>
-			</requestFiltering>
-		</security>
 		<staticContent>
 			<remove fileExtension=".webmanifest"/>
 			<mimeMap fileExtension=".webmanifest" mimeType="application/json"/>
 		</staticContent>
+		<security>
+			<requestFiltering removeServerHeader="true" />
+		</security>
+		<httpProtocol>
+			<customHeaders>
+				<add name="Content-Security-Policy" value="default-src 'self'" />
+				<add name="X-Content-Type-Options" value="nosniff" />
+				<add name="X-Frame-Options" value="deny" />
+				<remove name="X-Powered-By" />
+			</customHeaders>
+		</httpProtocol>
 	</system.webServer>
-
-	<!-- Configuration for the NWebsec package. See https://docs.nwebsec.com/en/aspnet4/index.html -->
-	<nwebsec>
-		<httpHeaderSecurityModule xmlns="http://nwebsec.com/HttpHeaderSecurityModuleConfig.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="NWebsecConfig/HttpHeaderSecurityModuleConfig.xsd">
-			<redirectValidation enabled="true">
-				<allowSameHostRedirectsToHttps enabled="true"/>
-				<add allowedDestination="https://raw.githubusercontent.com/gaepdit/"/>
-			</redirectValidation>
-			<securityHttpHeaders>
-				<x-Frame-Options policy="Deny"/>
-				<x-XSS-Protection policy="FilterEnabled" blockMode="true"/>
-				<x-Content-Type-Options enabled="true"/>
-				<referrer-Policy enabled="true" policy="strict-origin-when-cross-origin"/>
-				<content-Security-Policy enabled="true" >
-					<default-src none="true"/>
-					<script-src self="true" unsafeInline="true" unsafeEval="true">
-						<add source="https://cdn.raygun.io/raygun4js/raygun.min.js"/>
-					</script-src>
-					<style-src self="true" unsafeInline="true"/>
-					<img-src self="true"/>
-					<connect-src self="true">
-						<add source="https://api.raygun.com"/>
-						<add source="https://api.raygun.io"/>
-					</connect-src>
-					<font-src self="true">
-						<add source="https://fonts.gstatic.com"/>
-					</font-src>
-					<form-action self="true"/>
-					<frame-ancestors none="true"/>
-					<manifest-src self="true"/>
-					<base-uri self="true"/>
-				</content-Security-Policy>
-			</securityHttpHeaders>
-		</httpHeaderSecurityModule>
-	</nwebsec>
 
 	<runtime>
 		<assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
