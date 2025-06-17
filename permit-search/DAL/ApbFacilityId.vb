@@ -42,7 +42,7 @@
     Public Shared Function IsValidAirsNumberFormat(airsNumber As String) As Boolean
         If airsNumber Is Nothing Then Return False
 
-        Return Regex.IsMatch(airsNumber, AirsNumberPattern)
+        Return Regex.IsMatch(airsNumber, AirsNumberPattern, RegexOptions.None, TimeSpan.FromMilliseconds(100))
     End Function
 
     ''' <summary>
