@@ -193,6 +193,11 @@
     <PackageReference Include="Mindscape.Raygun4Net">
       <Version>11.2.4</Version>
     </PackageReference>
+    <PackageReference Include="SonarAnalyzer.VisualBasic">
+      <Version>10.15.0.120848</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Telerik.UI.for.AspNet.Ajax.Net462">
       <Version>2025.3.825</Version>
     </PackageReference>
@@ -256,7 +261,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
