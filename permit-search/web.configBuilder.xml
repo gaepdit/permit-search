@@ -9,6 +9,9 @@
 	<RaygunSettings apikey="" excludeHttpStatusCodes="404"/>
 	<appSettings>
 		<add key="APP_ENVIRONMENT" value="Development"/>
+		<add key="dd_env" value=""/>
+		<add key="dd_clientToken" value=""/>
+		<add key="dd_applicationId" value=""/>
 		<add key="OrgNotificationsApiUrl" value="https://localhost:7233/current"/>
 		<add key="Telerik.Web.UI.RenderMode" value="lightweight"/>
 		<add key="Telerik.Skin" value="Bootstrap"/>
@@ -31,6 +34,7 @@
 			<add path="Telerik.RadUploadProgressHandler.ashx" type="Telerik.Web.UI.RadUploadProgressHandler" verb="*" validate="false"/>
 			<add path="Telerik.Web.UI.WebResource.axd" type="Telerik.Web.UI.WebResource" verb="*" validate="false"/>
 		</httpHandlers>
+		<customErrors mode="Off"/>
 	</system.web>
 	<system.webServer>
 		<rewrite>
@@ -83,7 +87,8 @@
 		</security>
 		<httpProtocol>
 			<customHeaders>
-				<add name="Content-Security-Policy" value="default-src 'self'" />
+				<add name="Content-Security-Policy" value="default-src 'none';script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.datadoghq-browser-agent.com https://cdn.raygun.io/raygun4js/raygun.min.js;style-src 'self' 'unsafe-inline';img-src 'self';font-src 'self' https://fonts.gstatic.com;connect-src 'self' https://browser-intake-us3-datadoghq.com https://api.raygun.com/ https://api.raygun.io/ https://cdn.raygun.io/;form-action 'self';frame-ancestors 'none';manifest-src 'self';worker-src https://www.datadoghq-browser-agent.com/us3/v6/;report-to csp-endpoint" />
+				<add name="Reporting-Endpoints" value="" />
 				<add name="X-Content-Type-Options" value="nosniff" />
 				<add name="X-Frame-Options" value="deny" />
 				<remove name="X-Powered-By" />

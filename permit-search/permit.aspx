@@ -3,6 +3,21 @@
 <html lang="en-us">
 <head>
     <title>Georgia Air Permit Not Found</title>
+    <script src="https://www.datadoghq-browser-agent.com/us3/v6/datadog-rum.js" type="text/javascript" crossorigin></script>
+    <script>
+        window.DD_RUM && window.DD_RUM.init({
+            clientToken: '<%= ConfigurationManager.AppSettings("dd_clientToken") %>',
+            applicationId: '<%= ConfigurationManager.AppSettings("dd_applicationId") %>',
+            site: 'us3.datadoghq.com',
+            service: 'geco',
+            env: '<%= ConfigurationManager.AppSettings("dd_env") %>',
+            trackUserInteractions: true,
+            sessionSampleRate: 100,
+            sessionReplaySampleRate: 20,
+            trackBfcacheViews: true,
+            defaultPrivacyLevel: 'mask-user-input',
+        });
+    </script>
     <script>
       !function(a,b,c,d,e,f,g,h){a.RaygunObject=e,a[e]=a[e]||function(){
       (a[e].o=a[e].o||[]).push(arguments)},f=b.createElement(c),g=b.getElementsByTagName(c)[0],
