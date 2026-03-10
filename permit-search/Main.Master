@@ -9,6 +9,23 @@
     <meta name="description" content="Georgia Air Protection Branch Permit Search Engine" />
 
     <asp:PlaceHolder runat="server">
+        <% If CurrentEnvironment <> "Staging" Then %>
+        <script src="https://www.datadoghq-browser-agent.com/us3/v6/datadog-rum.js" type="text/javascript" crossorigin></script>
+        <script>
+            window.DD_RUM && window.DD_RUM.init({
+                clientToken: '<%= ConfigurationManager.AppSettings("dd_clientToken") %>',
+                applicationId: '<%= ConfigurationManager.AppSettings("dd_applicationId") %>',
+                site: 'us3.datadoghq.com',
+                service: 'geco',
+                env: '<%= ConfigurationManager.AppSettings("dd_env") %>',
+                trackUserInteractions: true,
+                sessionSampleRate: 100,
+                sessionReplaySampleRate: 20,
+                trackBfcacheViews: true,
+                defaultPrivacyLevel: 'mask-user-input',
+            });
+        </script>
+        <% End If %>
         <% If CurrentEnvironment = "Production" Then %>
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/icon.svg" sizes="any" type="image/svg+xml" charset="utf-8" />
