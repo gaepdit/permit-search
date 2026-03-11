@@ -5,8 +5,6 @@ Imports System.Net
 Public Class permit
     Inherits Page
 
-    Protected ReadOnly Property RaygunApiKey = CType(ConfigurationManager.GetSection("RaygunSettings"), Mindscape.Raygun4Net.RaygunSettings).ApiKey
-
     Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         Dim file As String = Request.QueryString("id")
         If String.IsNullOrEmpty(file) Then

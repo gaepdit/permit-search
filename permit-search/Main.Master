@@ -9,23 +9,6 @@
     <meta name="description" content="Georgia Air Protection Branch Permit Search Engine" />
 
     <asp:PlaceHolder runat="server">
-        <% If CurrentEnvironment <> "Staging" Then %>
-        <script src="https://www.datadoghq-browser-agent.com/us3/v6/datadog-rum.js" type="text/javascript" crossorigin></script>
-        <script>
-            window.DD_RUM && window.DD_RUM.init({
-                clientToken: '<%= ConfigurationManager.AppSettings("dd_clientToken") %>',
-                applicationId: '<%= ConfigurationManager.AppSettings("dd_applicationId") %>',
-                site: 'us3.datadoghq.com',
-                service: 'geco',
-                env: '<%= ConfigurationManager.AppSettings("dd_env") %>',
-                trackUserInteractions: true,
-                sessionSampleRate: 100,
-                sessionReplaySampleRate: 20,
-                trackBfcacheViews: true,
-                defaultPrivacyLevel: 'mask-user-input',
-            });
-        </script>
-        <% End If %>
         <% If CurrentEnvironment = "Production" Then %>
         <link rel="icon" href="/favicon.ico" sizes="48x48" />
         <link rel="icon" href="/icon.svg" sizes="any" type="image/svg+xml" charset="utf-8" />
@@ -45,6 +28,27 @@
         <link rel="manifest" href="/assets/dev/dev-site.webmanifest">
         <meta name="theme-color" content="#333333">
         <% End If %>
+        <script>
+            (function (h, o, u, n, d) {
+                h = h[d] = h[d] || { q: [], onReady: function (c) { h.q.push(c) } }
+                d = o.createElement(u); d.async = 1; d.src = n; d.crossOrigin = ''
+                n = o.getElementsByTagName(u)[0]; n.parentNode.insertBefore(d, n)
+            })(window, document, 'script', 'https://www.datadoghq-browser-agent.com/us3/v6/datadog-rum.js', 'DD_RUM')
+            window.DD_RUM.onReady(function () {
+                window.DD_RUM.init({
+                    clientToken: '<%= ConfigurationManager.AppSettings("dd_clientToken") %>',
+                    applicationId: '<%= ConfigurationManager.AppSettings("dd_applicationId") %>',
+                    site: 'us3.datadoghq.com',
+                    service: 'permitsearch',
+                    env: '<%= ConfigurationManager.AppSettings("dd_env") %>',
+                    trackUserInteractions: true,
+                    sessionSampleRate: 100,
+                    sessionReplaySampleRate: 20,
+                    trackBfcacheViews: true,
+                    defaultPrivacyLevel: 'mask-user-input',
+                });
+            })
+        </script>
     </asp:PlaceHolder>
 
     <link rel="stylesheet" href="css/style.css?v=20250321" type="text/css" />
@@ -58,18 +62,6 @@
                 args.set_cancel(true);
             }
         }
-    </script>
-    <script>
-        !function (a, b, c, d, e, f, g, h) {
-            a.RaygunObject = e, a[e] = a[e] || function () {
-                (a[e].o = a[e].o || []).push(arguments)
-            }, f = b.createElement(c), g = b.getElementsByTagName(c)[0],
-                f.async = 1, f.src = d, g.parentNode.insertBefore(f, g), h = a.onerror, a.onerror = function (b, c, d, f, g) {
-                    h && h(b, c, d, f, g), g || (g = new Error(b)), a[e].q = a[e].q || [], a[e].q.push({
-                        e: g
-                    })
-                }
-        }(window, document, "script", "//cdn.raygun.io/raygun4js/raygun.min.js", "rg4js");
     </script>
 </head>
 
@@ -94,12 +86,5 @@
             </p>
         </div>
     </form>
-    <script>
-        rg4js('apiKey', '<%= RaygunApiKey %>');
-        rg4js('enableCrashReporting', true);
-        rg4js('enablePulse', true);
-        rg4js('options', { ignore3rdPartyErrors: true });
-        rg4js('logContentsOfXhrCalls', true);
-    </script>
 </body>
 </html>
