@@ -7,11 +7,9 @@ web.configBuilder.Release.xml
 web.configBuilder.Staging.xml
 web.config
 
-# Cypress.io generated videos, screenshots, and logs
-**/cypress/videos/
-**/cypress/screenshots/
-**/cypress/logs/
+# JetBrains
 
+/.idea
 
 ### generated .gitignore ###
 # Created by https://www.toptal.com/developers/gitignore/api/windows,visualstudio
