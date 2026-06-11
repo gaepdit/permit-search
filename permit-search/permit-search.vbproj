@@ -188,18 +188,15 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient">
-      <Version>7.0.0</Version>
-    </PackageReference>
-    <PackageReference Include="Mindscape.Raygun4Net">
-      <Version>11.2.5</Version>
+      <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="SonarAnalyzer.VisualBasic">
-      <Version>10.24.0.138807</Version>
+      <Version>10.27.0.140913</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Telerik.UI.for.AspNet.Ajax.Net462">
-      <Version>2026.1.225</Version>
+      <Version>2026.1.421</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup>
@@ -261,7 +258,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
+      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
