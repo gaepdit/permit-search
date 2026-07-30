@@ -9,7 +9,8 @@
             h = h[d] = h[d] || { q: [], onReady: function (c) { h.q.push(c) } }
             d = o.createElement(u); d.async = 1; d.src = n; d.crossOrigin = ''
             n = o.getElementsByTagName(u)[0]; n.parentNode.insertBefore(d, n)
-        })(window, document, 'script', 'https://www.datadoghq-browser-agent.com/us3/v6/datadog-rum.js', 'DD_RUM')
+        })(window, document, 'script', 'https://www.datadoghq-browser-agent.com/us3/v7/datadog-rum.js', 'DD_RUM');
+
         window.DD_RUM.onReady(function () {
             window.DD_RUM.init({
                 clientToken: '<%= ConfigurationManager.AppSettings("dd_clientToken") %>',
@@ -18,10 +19,14 @@
                 service: 'permitsearch',
                 env: '<%= ConfigurationManager.AppSettings("dd_env") %>',
                 trackUserInteractions: true,
+                forwardErrorsToLogs: true,
+                forwardConsoleLogs: ['error', 'warn'],
                 sessionSampleRate: 100,
                 sessionReplaySampleRate: 20,
-                trackBfcacheViews: true,
-                defaultPrivacyLevel: 'mask-user-input',
+                beforeSend: (log) => {
+                    // discard debug logs
+                    if (log.level === 'debug') return false;
+                },
             });
         })
     </script>
