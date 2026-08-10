@@ -1,20 +1,34 @@
-﻿Imports Microsoft.Data.SqlClient
+﻿Imports System.Collections.Specialized
 Imports System.Linq
 Imports System.Net
+Imports System.Security.Policy
+Imports Microsoft.Data.SqlClient
 
 Public Class permit
     Inherits Page
 
     Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim file As String = Request.QueryString("id")
+        Dim nameValues As NameValueCollection = HttpUtility.ParseQueryString(Request.QueryString.ToString())
+        Dim file As String = nameValues.Item("id")
+
         If String.IsNullOrEmpty(file) Then
             Response.StatusCode = HttpStatusCode.BadRequest
             Return
         End If
 
         Dim ext As String = file.Substring(0, 3)
-        If Not {"PDF", "DOC"}.Contains(ext) Then
+        If ext = "DOC" Then
+            Dim newFileName As String = file.Replace("DOC", "PDF")
+            nameValues.Set("id", newFileName)
+
+            Response.Redirect(String.Concat(Request.Url.AbsolutePath, "?", nameValues), False)
+            HttpContext.Current.ApplicationInstance.CompleteRequest()
+            Return
+        End If
+
+        If ext = "PDF" Then
             Response.StatusCode = HttpStatusCode.NotFound
+            HttpContext.Current.ApplicationInstance.CompleteRequest()
             Return
         End If
 
