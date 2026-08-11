@@ -10,7 +10,7 @@
     <ProjectGuid>{070F99B9-8838-4ADF-AFA7-2F1FD85F5BA4}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>permitsearch.gaepd.org</RootNamespace>
+    <RootNamespace>PermitSearch</RootNamespace>
     <AssemblyName>permitsearch.gaepd.org</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileUpgradeFlags>

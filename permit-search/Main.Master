@@ -1,4 +1,4 @@
-﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.Master.vb" Inherits="permitsearch.gaepd.org.Main" %>
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Main.Master.vb" Inherits="PermitSearch.Main" %>
 
 <!DOCTYPE html>
 <html lang="en-us">

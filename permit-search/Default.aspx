@@ -1,4 +1,4 @@
-﻿<%@ Page Language="VB" Async="true" MasterPageFile="~/Main.Master" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="permitsearch.gaepd.org._Default" %>
+﻿<%@ Page Language="VB" Async="true" MasterPageFile="~/Main.Master" AutoEventWireup="false" CodeBehind="Default.aspx.vb" Inherits="PermitSearch._Default" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <telerik:RadScriptManager ID="RadScriptManager1" runat="server">
