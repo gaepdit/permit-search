@@ -1,5 +1,6 @@
 Imports System.Net.Http
 Imports System.Runtime.Caching
+Imports System.Text
 Imports System.Text.Json
 Imports System.Threading.Tasks
 Imports System.Web.UI.HtmlControls
@@ -29,11 +30,14 @@ Public Class _Default
         If notifications.Count > 0 Then
             Dim div As New HtmlGenericControl("div")
             div.Attributes("class") = "announcement announcement-severe"
-            div.InnerHtml = "<h2>Notice</h2>"
+
+            Dim innerHtml As New StringBuilder("<h2>Notice</h2>")
             For Each notification As OrgNotification In notifications
-                div.InnerHtml += $"<p>{notification.Message}</p>"
+                innerHtml.AppendLine($"<p>{notification.Message}</p>")
             Next
-            div.InnerHtml += "<p>Please refer to the <a href=""https://status.gaepd.org/"">EPD-IT status page</a> for updates.</p>"
+            innerHtml.AppendLine("<p>Please refer to the <a href=""https://status.gaepd.org/"">EPD-IT status page</a> for updates.</p>")
+
+            div.InnerHtml = innerHtml.ToString
             OrgNotifications.Controls.Add(div)
         End If
     End Function
