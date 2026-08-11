@@ -9,6 +9,7 @@ Public Class Global_asax
 
     Private Shared Sub RegisterRoutes(routes As RouteCollection)
         routes.MapPageRoute("Permit", "Permit/{Id}", "~/Permit.aspx")
+        routes.MapPageRoute("AirsNumber", "AirsNumber/{Id}", "~/Default.aspx")
     End Sub
 
 End Class

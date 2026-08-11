@@ -12,13 +12,21 @@ Public Class _Default
     Public ReadOnly Property CurrentEnvironment As String = ConfigurationManager.AppSettings("APP_ENVIRONMENT")
 
     Private Async Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If Not IsPostBack AndAlso Request.QueryString("AirsNumber") <> "" Then
-            Dim airsNumber As String = Request.QueryString("AirsNumber")
+        If Not IsPostBack Then
 
-            If ApbFacilityId.IsValidAirsNumberFormat(airsNumber) Then
+            ' Check for old style URLs and redirect to new route
+            Dim airsNum As String = Request.QueryString.Get("AirsNumber")
+            If airsNum IsNot Nothing Then
+                Response.RedirectToRoute("AirsNumber", New With {.Id = airsNum})
+                Return
+            End If
+
+            Dim airsNumber As String = ""
+            If Page.RouteData.Values.TryGetValue("Id", airsNumber) AndAlso Not String.IsNullOrEmpty(airsNumber) AndAlso ApbFacilityId.IsValidAirsNumberFormat(airsNumber) Then
                 txtAirsNo.Entries.Insert(0, New AutoCompleteBoxEntry(New ApbFacilityId(airsNumber).ShortString))
                 SearchPermits()
             End If
+
         End If
 
         Await DisplayNotificationsAsync()
