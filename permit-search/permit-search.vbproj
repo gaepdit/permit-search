@@ -91,6 +91,9 @@
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Global.asax.vb">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Main.Master.designer.vb">
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
@@ -115,11 +118,11 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="OrgNotifications\OrgNotifications.vb" />
-    <Compile Include="permit.aspx.designer.vb">
-      <DependentUpon>permit.aspx</DependentUpon>
+    <Compile Include="Permit.aspx.designer.vb">
+      <DependentUpon>Permit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="permit.aspx.vb">
-      <DependentUpon>permit.aspx</DependentUpon>
+    <Compile Include="Permit.aspx.vb">
+      <DependentUpon>Permit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
   </ItemGroup>
@@ -145,6 +148,7 @@
     <Content Include="assets\uat\uat-icon-512.png" />
     <Content Include="assets\uat\uat-icon.svg" />
     <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
     <Content Include="google5acc82aef12cf7c5.html" />
     <Content Include="icon-192.png" />
     <Content Include="icon-512.png" />
@@ -169,7 +173,7 @@
     </None>
     <Content Include="css\style.css" />
     <Content Include="Default.aspx" />
-    <Content Include="permit.aspx" />
+    <Content Include="Permit.aspx" />
     <Content Include="web.config" />
     <Content Include="web.configBuilder.xml" />
     <Content Include="site.webmanifest" />

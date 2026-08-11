@@ -1,27 +1,28 @@
 ﻿Imports Microsoft.Data.SqlClient
-Imports System.Collections.Specialized
 Imports System.Linq
 Imports System.Net
 
-Public Class permit
+Public Class Permit
     Inherits Page
 
     Private Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        Dim nameValues As NameValueCollection = HttpUtility.ParseQueryString(Request.QueryString.ToString())
-        Dim file As String = nameValues.Item("id")
 
-        If String.IsNullOrEmpty(file) Then
-            Response.StatusCode = HttpStatusCode.BadRequest
+        ' Check for old style URLs and redirect to new route
+        Dim fileId As String = Request.QueryString.Get("Id")
+        If fileId IsNot Nothing Then
+            Response.RedirectToRoute("Permit", New With {.Id = fileId})
             Return
         End If
 
-        Dim ext As String = file.Substring(0, 3)
-        If {"PDF", "DOC"}.Contains(ext) Then
-            Dim newFileName As String = file.Substring(4)
-            nameValues.Set("id", newFileName)
+        Dim file As String = ""
+        If Not Page.RouteData.Values.TryGetValue("Id", file) OrElse String.IsNullOrEmpty(file) Then
+            Response.Redirect("~/")
+            Return
+        End If
 
-            Response.Redirect(String.Concat(Request.Url.AbsolutePath, "?", nameValues), False)
-            HttpContext.Current.ApplicationInstance.CompleteRequest()
+        If {"PDF", "DOC"}.Contains(file.Substring(0, 3)) Then
+            Dim newFileName As String = file.Substring(4)
+            Response.RedirectToRoute("Permit", New With {.Id = newFileName})
             Return
         End If
 

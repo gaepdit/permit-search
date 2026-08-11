@@ -117,11 +117,11 @@ Public Class _Default
 
         Dim hlFinalPermit = DirectCast(item.FindControl("hlFinalPermit"), HyperLink)
         hlFinalPermit.Text = item.GetDataKeyValue("PermitNumber")
-        hlFinalPermit.NavigateUrl = String.Concat("~/permit.aspx?id=", permit)
+        hlFinalPermit.NavigateUrl = String.Concat("~/Permit/", permit)
 
         If Not String.IsNullOrEmpty(narrative) Then
             Dim link = DirectCast(item.FindControl("hlNarrative"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", narrative)
+            link.NavigateUrl = String.Concat("~/Permit/", narrative)
         Else
             Dim listItem = item.FindControl("liNarrative")
             listItem.Visible = False
@@ -129,7 +129,7 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(preDeterm) Then
             Dim link = DirectCast(item.FindControl("hlPreDeterm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", preDeterm)
+            link.NavigateUrl = String.Concat("~/Permit/", preDeterm)
         Else
             Dim listItem = item.FindControl("liPreDeterm")
             listItem.Visible = False
@@ -137,7 +137,7 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(finDeterm) Then
             Dim link = DirectCast(item.FindControl("hlFinDeterm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", finDeterm)
+            link.NavigateUrl = String.Concat("~/Permit/", finDeterm)
         Else
             Dim listItem = item.FindControl("liFinDeterm")
             listItem.Visible = False
@@ -145,7 +145,7 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(appSumm) Then
             Dim link = DirectCast(item.FindControl("hlAppSumm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", appSumm)
+            link.NavigateUrl = String.Concat("~/Permit/", appSumm)
         Else
             Dim listItem = item.FindControl("liAppSumm")
             listItem.Visible = False

@@ -11,5 +11,5 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class permit
+Partial Public Class Permit
 End Class

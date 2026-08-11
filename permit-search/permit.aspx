@@ -1,4 +1,4 @@
-﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="permit.aspx.vb" Inherits="PermitSearch.Permit" %>
+﻿<%@ Page Language="vb" AutoEventWireup="false" CodeBehind="Permit.aspx.vb" Inherits="PermitSearch.Permit" %>
 
 <!DOCTYPE html>
 <html lang="en-us">
