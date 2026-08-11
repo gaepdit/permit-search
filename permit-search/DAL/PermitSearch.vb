@@ -17,7 +17,7 @@ Module PermitSearch
             "select ApplicationNumber, AIRS, FacilityName, PermitNumber, 
                IssuanceDate, FileType, VNarrative, VFinal, PSDAppSum,PSDPrelim,
                PSDNarrative, PSDFinalDet, PSDFinal, OtherNarrative, OtherPermit
-            from dbo.VW_GA_PERMITS
+            from dbo.VW_GA_PERMIT_DOCS
             where AIRSNumber like concat('%', @airs, '%')
               and FacilityName like concat('%', @name, '%')
               and PermitNumber like concat('%', @permit, '%')
@@ -56,9 +56,9 @@ Module PermitSearch
 
     Public Function GetPermitsCount(airs As String, name As String, permit As String) As Integer
 
-        Dim query As String =
+        Const query As String =
             "Select count(*)
-            from dbo.VW_GA_PERMITS
+            from dbo.VW_GA_PERMIT_DOCS
             where AIRSNumber like concat('%', @airs, '%')
               and FacilityName like concat('%', @name, '%')
               and PermitNumber like concat('%', @permit, '%')"
