@@ -10,8 +10,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("Permit Search Engine")>
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("Georgia Environmental Protection Division")>
-<Assembly: AssemblyProduct("permitsearch.gaepd.org")>
-<Assembly: AssemblyCopyright("Copyright © Georgia Dept of Natural Resources 2025")>
+<Assembly: AssemblyProduct("Permit Search Engine")>
+<Assembly: AssemblyCopyright("Copyright © 2026")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -30,4 +30,4 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2026.4.21")>
+<Assembly: AssemblyVersion("2026.8.19")>
