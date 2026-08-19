@@ -17,7 +17,7 @@ Module PermitSearch
             "select ApplicationNumber, AIRS, FacilityName, PermitNumber, 
                IssuanceDate, FileType, VNarrative, VFinal, PSDAppSum,PSDPrelim,
                PSDNarrative, PSDFinalDet, PSDFinal, OtherNarrative, OtherPermit
-            from dbo.VW_GA_PERMIT_DOCS
+            from dbo.VW_GA_PERMITS
             where AIRSNumber like concat('%', @airs, '%')
               and FacilityName like concat('%', @name, '%')
               and PermitNumber like concat('%', @permit, '%')
@@ -58,7 +58,7 @@ Module PermitSearch
 
         Const query As String =
             "Select count(*)
-            from dbo.VW_GA_PERMIT_DOCS
+            from dbo.VW_GA_PERMITS
             where AIRSNumber like concat('%', @airs, '%')
               and FacilityName like concat('%', @name, '%')
               and PermitNumber like concat('%', @permit, '%')"
