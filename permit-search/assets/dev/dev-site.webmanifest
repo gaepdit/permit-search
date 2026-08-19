@@ -3,12 +3,12 @@
 	"short_name": "Permit Search",
 	"icons": [
 		{
-			"src": "/dev/dev-icon-192.png",
+			"src": "/assets/dev/dev-icon-192.png",
 			"sizes": "192x192",
 			"type": "image/png"
 		},
 		{
-			"src": "/dev/dev-icon-512x512.png",
+			"src": "/assets/dev/dev-icon-512x512.png",
 			"sizes": "512x512",
 			"type": "image/png"
 		}

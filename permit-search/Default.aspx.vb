@@ -1,5 +1,6 @@
 Imports System.Net.Http
 Imports System.Runtime.Caching
+Imports System.Text
 Imports System.Text.Json
 Imports System.Threading.Tasks
 Imports System.Web.UI.HtmlControls
@@ -11,13 +12,21 @@ Public Class _Default
     Public ReadOnly Property CurrentEnvironment As String = ConfigurationManager.AppSettings("APP_ENVIRONMENT")
 
     Private Async Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
-        If Not IsPostBack AndAlso Request.QueryString("AirsNumber") <> "" Then
-            Dim airsNumber As String = Request.QueryString("AirsNumber")
+        If Not IsPostBack Then
 
-            If ApbFacilityId.IsValidAirsNumberFormat(airsNumber) Then
+            ' Check for old style URLs and redirect to new route
+            Dim airsNum As String = Request.QueryString.Get("AirsNumber")
+            If airsNum IsNot Nothing Then
+                Response.RedirectToRoute("AirsNumber", New With {.Id = airsNum})
+                Return
+            End If
+
+            Dim airsNumber As String = ""
+            If Page.RouteData.Values.TryGetValue("Id", airsNumber) AndAlso Not String.IsNullOrEmpty(airsNumber) AndAlso ApbFacilityId.IsValidAirsNumberFormat(airsNumber) Then
                 txtAirsNo.Entries.Insert(0, New AutoCompleteBoxEntry(New ApbFacilityId(airsNumber).ShortString))
                 SearchPermits()
             End If
+
         End If
 
         Await DisplayNotificationsAsync()
@@ -29,11 +38,14 @@ Public Class _Default
         If notifications.Count > 0 Then
             Dim div As New HtmlGenericControl("div")
             div.Attributes("class") = "announcement announcement-severe"
-            div.InnerHtml = "<h2>Notice</h2>"
+
+            Dim innerHtml As New StringBuilder("<h2>Notice</h2>")
             For Each notification As OrgNotification In notifications
-                div.InnerHtml += $"<p>{notification.Message}</p>"
+                innerHtml.AppendLine($"<p>{notification.Message}</p>")
             Next
-            div.InnerHtml += "<p>Please refer to the <a href=""https://status.gaepd.org/"">EPD-IT status page</a> for updates.</p>"
+            innerHtml.AppendLine("<p>Please refer to the <a href=""https://status.gaepd.org/"">EPD-IT status page</a> for updates.</p>")
+
+            div.InnerHtml = innerHtml.ToString
             OrgNotifications.Controls.Add(div)
         End If
     End Function
@@ -113,11 +125,11 @@ Public Class _Default
 
         Dim hlFinalPermit = DirectCast(item.FindControl("hlFinalPermit"), HyperLink)
         hlFinalPermit.Text = item.GetDataKeyValue("PermitNumber")
-        hlFinalPermit.NavigateUrl = String.Concat("~/permit.aspx?id=", permit)
+        hlFinalPermit.NavigateUrl = PermitUrl(permit)
 
         If Not String.IsNullOrEmpty(narrative) Then
             Dim link = DirectCast(item.FindControl("hlNarrative"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", narrative)
+            link.NavigateUrl = PermitUrl(narrative)
         Else
             Dim listItem = item.FindControl("liNarrative")
             listItem.Visible = False
@@ -125,7 +137,7 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(preDeterm) Then
             Dim link = DirectCast(item.FindControl("hlPreDeterm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", preDeterm)
+            link.NavigateUrl = PermitUrl(preDeterm)
         Else
             Dim listItem = item.FindControl("liPreDeterm")
             listItem.Visible = False
@@ -133,7 +145,7 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(finDeterm) Then
             Dim link = DirectCast(item.FindControl("hlFinDeterm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", finDeterm)
+            link.NavigateUrl = PermitUrl(finDeterm)
         Else
             Dim listItem = item.FindControl("liFinDeterm")
             listItem.Visible = False
@@ -141,12 +153,16 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(appSumm) Then
             Dim link = DirectCast(item.FindControl("hlAppSumm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/permit.aspx?id=", appSumm)
+            link.NavigateUrl = PermitUrl(appSumm)
         Else
             Dim listItem = item.FindControl("liAppSumm")
             listItem.Visible = False
         End If
     End Sub
+
+    Private Function PermitUrl(id As String) As String
+        Return $"~/Permit/{id}"
+    End Function
 
     Private Sub EntryAdded(sender As Object, e As AutoCompleteEntryEventArgs) Handles txtFacility.EntryAdded, txtAirsNo.EntryAdded
         SearchPermits()

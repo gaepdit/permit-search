@@ -56,7 +56,7 @@ Module PermitSearch
 
     Public Function GetPermitsCount(airs As String, name As String, permit As String) As Integer
 
-        Dim query As String =
+        Const query As String =
             "Select count(*)
             from dbo.VW_GA_PERMITS
             where AIRSNumber like concat('%', @airs, '%')
