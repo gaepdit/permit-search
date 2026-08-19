@@ -199,8 +199,11 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Telerik.Licensing">
+      <Version>1.9.1</Version>
+    </PackageReference>
     <PackageReference Include="Telerik.UI.for.AspNet.Ajax.Net462">
-      <Version>2026.1.421</Version>
+      <Version>2026.3.812</Version>
     </PackageReference>
   </ItemGroup>
   <PropertyGroup>
@@ -262,7 +265,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
-      <UserProperties UseAjaxifiedTemplates="True" UseJQuerySupport="True" />
+      <UserProperties UseJQuerySupport="True" UseAjaxifiedTemplates="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
