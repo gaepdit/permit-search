@@ -125,11 +125,11 @@ Public Class _Default
 
         Dim hlFinalPermit = DirectCast(item.FindControl("hlFinalPermit"), HyperLink)
         hlFinalPermit.Text = item.GetDataKeyValue("PermitNumber")
-        hlFinalPermit.NavigateUrl = String.Concat("~/Permit/", permit)
+        hlFinalPermit.NavigateUrl = PermitUrl(permit)
 
         If Not String.IsNullOrEmpty(narrative) Then
             Dim link = DirectCast(item.FindControl("hlNarrative"), HyperLink)
-            link.NavigateUrl = String.Concat("~/Permit/", narrative)
+            link.NavigateUrl = PermitUrl(narrative)
         Else
             Dim listItem = item.FindControl("liNarrative")
             listItem.Visible = False
@@ -137,7 +137,7 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(preDeterm) Then
             Dim link = DirectCast(item.FindControl("hlPreDeterm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/Permit/", preDeterm)
+            link.NavigateUrl = PermitUrl(preDeterm)
         Else
             Dim listItem = item.FindControl("liPreDeterm")
             listItem.Visible = False
@@ -145,7 +145,7 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(finDeterm) Then
             Dim link = DirectCast(item.FindControl("hlFinDeterm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/Permit/", finDeterm)
+            link.NavigateUrl = PermitUrl(finDeterm)
         Else
             Dim listItem = item.FindControl("liFinDeterm")
             listItem.Visible = False
@@ -153,12 +153,16 @@ Public Class _Default
 
         If Not String.IsNullOrEmpty(appSumm) Then
             Dim link = DirectCast(item.FindControl("hlAppSumm"), HyperLink)
-            link.NavigateUrl = String.Concat("~/Permit/", appSumm)
+            link.NavigateUrl = PermitUrl(appSumm)
         Else
             Dim listItem = item.FindControl("liAppSumm")
             listItem.Visible = False
         End If
     End Sub
+
+    Private Function PermitUrl(id As String) As String
+        Return $"~/Permit/{id}"
+    End Function
 
     Private Sub EntryAdded(sender As Object, e As AutoCompleteEntryEventArgs) Handles txtFacility.EntryAdded, txtAirsNo.EntryAdded
         SearchPermits()
