@@ -162,10 +162,10 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\PublishProfiles\azure-dev-app.pubxml" />
-    <None Include="My Project\PublishProfiles\azure-prod-app-1.pubxml" />
-    <None Include="My Project\PublishProfiles\azure-prod-app-2.pubxml" />
-    <None Include="My Project\PublishProfiles\azure-test-app.pubxml" />
+    <None Include="My Project\PublishProfiles\dev-app.pubxml" />
+    <None Include="My Project\PublishProfiles\prod-app-1.pubxml" />
+    <None Include="My Project\PublishProfiles\prod-app-2.pubxml" />
+    <None Include="My Project\PublishProfiles\test-app.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
